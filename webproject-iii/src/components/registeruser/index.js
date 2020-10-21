@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
 import "firebase/firestore";
-import db from '../../firebaseConfig';
 
 
 const RegisterUser = () => {
-let registerUser=false; //used to keep track of whether account is successfully registered or not
+  let registerUser = false; //used to keep track of whether account is successfully registered or not
 
   const [user, setUser] = useState({
     email: '',
     password: '',
     fname: '',
     lname: '',
-    bday: '',
+    dob: '',
     country: '',
     city: '',
     error: '',
@@ -39,43 +38,20 @@ let registerUser=false; //used to keep track of whether account is successfully 
         //add information to user cloudstore here
 
         firebase.firestore().collection("users").add({
-          name: user.fname
-      })
-      .then(function() {
-          console.log("Document successfully written!");
-      })
-      .catch(function(error) {
-          console.error("Error writing document: ", error);
-      });
-
-      db.collection("users").add({
-        first: "Ada",
-        last: "Lovelace",
-        born: 1815
-    })
-    .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-    })
-    .catch(function(error) {
-        console.error("Error adding document: ", error);
-    });
-  
-
-        //signs user out
-        firebase.auth().signOut();
-      }).catch(error => {
-        // logs potential errors
-        setUser({
-          ...user,
-          error: error.message,
+          fname: user.fname,
+          lname: user.lname
         })
+          .then(result => {
+            //redirects after user has been successfully registered
+            registerUser = true;
+            if (registerUser === true) {
+              window.location = '/registersuccess';
+            }
+          })
+          .catch(error => {
+            console.log(error.message)
+          })
       })
-      registerUser=true; //redirects after user has been successfully registered
-      // if(registerUser===true){
-      //   window.location = '/registersuccess';
-      // }
-
-      console.log(firebase.db);
   }
 
   return (
@@ -89,11 +65,11 @@ let registerUser=false; //used to keep track of whether account is successfully 
         <label>Name:</label>
         <input type="text" placeholder="First Name" name="fname" onChange={handleChange} />
         <input type="text" placeholder="Last name" name="lname" onChange={handleChange} />
-        {/* <label>Date of birth:</label>
-        <input type="text" placeholder="Birthdate" name="bday" onChange={handleChange} />
+        <label>Date of birth:</label>
+        <input type="text" placeholder="Birthdate" name="dob" onChange={handleChange} />
         <label>Current location:</label>
         <input type="text" placeholder="Country" name="country" onChange={handleChange} />
-        <input type="text" placeholder="City" name="city" onChange={handleChange} /> */}
+        <input type="text" placeholder="City" name="city" onChange={handleChange} />
         <button type="submit">Sign Up</button>
       </form>
       {user.error && <h4>{user.error}</h4>}
