@@ -3,18 +3,21 @@ import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
 
 const RegisterUser = () => {
-  // User State
+let registerUser=false; //used to keep track of whether account is successfully registered or not
+
   const [user, setUser] = useState({
-    nickname: '',
     email: '',
     password: '',
+    fname: '',
+    lname: '',
+    bday: '',
+    country: '',
+    city: '',
     error: '',
   });
 
-    // Import firebase
-    const firebase = useFirebaseApp();
+  const firebase = useFirebaseApp();
 
-  // onChange function
   const handleChange = e => {
     setUser({
       ...user,
@@ -24,31 +27,44 @@ const RegisterUser = () => {
   };
 
   // Submit function (Create account)
-  const handleSubmit = async(e) => {
+  const registerSubmit = async (e) => {
     e.preventDefault();
-    // Sign up code here.
+    //signs up account to firebase
     await firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
       .then(result => {
         //add information to user cloudstore here
 
-        // Sign Out the user.
+        //signs user out
         firebase.auth().signOut();
       }).catch(error => {
-        // Update the error
+        // logs potential errors
         setUser({
           ...user,
           error: error.message,
         })
       })
+      registerUser=true; //redirects after user has been successfully registered
+      if(registerUser===true){
+        window.location = '/login';
+      }
   }
 
   return (
     <>
       <h1>Sign up</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Nickname" name="nickname" onChange={handleChange} /><br />
-        <input type="text" placeholder="Email" name="email" onChange={handleChange} /><br />
-        <input type="password" placeholder="Password" name="password" onChange={handleChange} /><br />
+      <form onSubmit={registerSubmit}>
+        <label>E-mail:</label>
+        <input type="text" placeholder="Email" name="email" onChange={handleChange} />
+        <label>Password:</label>
+        <input type="password" placeholder="Password" name="password" onChange={handleChange} />
+        <label>Name:</label>
+        <input type="text" placeholder="First Name" name="fname" onChange={handleChange} />
+        <input type="text" placeholder="Last name" name="lname" onChange={handleChange} />
+        {/* <label>Date of birth:</label>
+        <input type="text" placeholder="Birthdate" name="bday" onChange={handleChange} />
+        <label>Current location:</label>
+        <input type="text" placeholder="Country" name="country" onChange={handleChange} />
+        <input type="text" placeholder="City" name="city" onChange={handleChange} /> */}
         <button type="submit">Sign Up</button>
       </form>
       {user.error && <h4>{user.error}</h4>}

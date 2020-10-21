@@ -3,14 +3,12 @@ import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
 
 const Login = () => {
-  // User State
   const [user, setUser] = useState({
     email: '',
     password: '',
     error: '',
   });
 
-  // onChange function
   const handleChange = e => {
     setUser({
       ...user,
@@ -19,15 +17,13 @@ const Login = () => {
     })
   };
 
-  // Import firebase
   const firebase = useFirebaseApp();
 
-  // Submit function (Log in user)
-  const handleSubmit = e => {
+  //kogs in user
+  const userLogin = e => {
     e.preventDefault();
-    // Log in code here.
     firebase.auth().signInWithEmailAndPassword(user.email, user.password).catch(error => {
-        // Update the error
+        //finds potential errors
         setUser({
           ...user,
           error: error.message,
@@ -35,10 +31,16 @@ const Login = () => {
       })
   }
 
+  firebase.auth().onAuthStateChanged(user => {
+    if(user) {
+      window.location = '/'; //After successful login, user will be redirected to home.html
+    }
+  });
+
   return (
     <>
       <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={userLogin}>
         <input type="text" placeholder="Email" name="email" onChange={handleChange}/><br />
         <input type="password" placeholder="Password" name="password" onChange={handleChange}/><br />
         <button type="submit">Log in</button>
