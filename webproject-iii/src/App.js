@@ -2,20 +2,18 @@ import React from 'react';
 import './App.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import Homepage from './components/homepage'; //importer komponenten Homepage fra Homepage.js
+import Login from './components/login';
+import RegisterUser from './components/registeruser';
+import RegisterUserSuccess from './components/registeruser/RegisterUserSuccess.js';
 
 function App() {
   return (
-    // en return() kan kun ha ett barn! du kan løse dette ved å putte alt i en <div> eller bruke den tomme <>
     <>
-    {/* alt som er felles over alle sider(header og footer) kan plasseres på dette nivået(utenfor <Router>) */}
     <Router>
-      {/* when URL is the same as the path="" the component on the same line is loaded */}
-      {/* eksempel: hvis url er https://localhost/ så vil den loade component {Homepage} */}
-      {/* Eksempel 2: se på <Route path="/student_application" component={StudentApplication} />. 
-        hvis url er https://localhost/student_application så vil den nå loade en component som heter StudentApplication 
-        istedenfor App */}
-      {/* for å loade en component fra en annen fil så må den eksporteres fra filen(se nederst App.js og Homepage.js for eksempel) og importeres inn hit (se linje 6) */}
       <Route exact path="/" component={Homepage} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={RegisterUser} />
+      <Route exact path="/registersuccess" component={RegisterUserSuccess} />
       </Router>
     </>
   );
