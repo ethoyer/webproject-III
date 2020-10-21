@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import logo from './logo.svg';
+import '../../App.css';
+import logo from '../../logo.svg';
 
 //alle classNames er her de som kommer default når du lager en ny react app. CSS i App.css kom også som default og er ikke noe vi-
 //kommer til å beholde.

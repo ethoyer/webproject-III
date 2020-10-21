@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import Homepage from './Homepage.js'; //importer komponenten Homepage fra Homepage.js
+import Homepage from './components/homepage'; //importer komponenten Homepage fra Homepage.js
 
 function App() {
   return (
