@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
+import "firebase/firestore";
+import firebase from '../../firebaseConfig';
+
+console.log(firebase);
+console.log(firebase.db);
+
 
 const RegisterUser = () => {
 let registerUser=false; //used to keep track of whether account is successfully registered or not
@@ -24,6 +30,7 @@ let registerUser=false; //used to keep track of whether account is successfully 
       [e.target.name]: e.target.value,
       error: '',
     })
+    console.log(user.fname);
   };
 
   // Submit function (Create account)
@@ -33,6 +40,45 @@ let registerUser=false; //used to keep track of whether account is successfully 
     await firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
       .then(result => {
         //add information to user cloudstore here
+
+        firebase.firestore().collection("users").add({
+          name: user.fname
+      })
+      .then(function() {
+          console.log("Document successfully written!");
+      })
+      .catch(function(error) {
+          console.error("Error writing document: ", error);
+      });
+      
+    //   var db = firebase.firestore();
+
+    //   db.collection("users").add({
+    //     first: "Ada",
+    //     last: "Lovelace",
+    //     born: 1815
+    // })
+    // .then(function(docRef) {
+    //     console.log("Document written with ID: ", docRef.id);
+    // })
+    // .catch(function(error) {
+    //     console.error("Error adding document: ", error);
+    // });
+
+    // Add a new document in collection "cities"
+// db.collection("cities").doc("LA").set({
+//   name: "Los Angeles",
+//   state: "CA",
+//   country: "USA"
+// })
+// .then(function() {
+//   console.log("Document successfully written!");
+// })
+// .catch(function(error) {
+//   console.error("Error writing document: ", error);
+// });
+
+  
 
         //signs user out
         firebase.auth().signOut();
@@ -44,9 +90,11 @@ let registerUser=false; //used to keep track of whether account is successfully 
         })
       })
       registerUser=true; //redirects after user has been successfully registered
-      if(registerUser===true){
-        window.location = '/login';
-      }
+      // if(registerUser===true){
+      //   window.location = '/registersuccess';
+      // }
+
+      console.log(firebase.db);
   }
 
   return (
