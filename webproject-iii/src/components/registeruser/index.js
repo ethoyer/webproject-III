@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
 import "firebase/firestore";
-import firebase from '../../firebaseConfig';
-
-console.log(firebase);
-console.log(firebase.db);
+import db from '../../firebaseConfig';
 
 
 const RegisterUser = () => {
@@ -50,34 +47,18 @@ let registerUser=false; //used to keep track of whether account is successfully 
       .catch(function(error) {
           console.error("Error writing document: ", error);
       });
-      
-    //   var db = firebase.firestore();
 
-    //   db.collection("users").add({
-    //     first: "Ada",
-    //     last: "Lovelace",
-    //     born: 1815
-    // })
-    // .then(function(docRef) {
-    //     console.log("Document written with ID: ", docRef.id);
-    // })
-    // .catch(function(error) {
-    //     console.error("Error adding document: ", error);
-    // });
-
-    // Add a new document in collection "cities"
-// db.collection("cities").doc("LA").set({
-//   name: "Los Angeles",
-//   state: "CA",
-//   country: "USA"
-// })
-// .then(function() {
-//   console.log("Document successfully written!");
-// })
-// .catch(function(error) {
-//   console.error("Error writing document: ", error);
-// });
-
+      db.collection("users").add({
+        first: "Ada",
+        last: "Lovelace",
+        born: 1815
+    })
+    .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
   
 
         //signs user out

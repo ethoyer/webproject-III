@@ -34,10 +34,10 @@
 // export default firebaseConfig;
 
 
-import firebase from 'firebase'
+import * as fb from 'firebase';
 import 'firebase/firestore'
 
-firebase.initializeApp({
+fb.initializeApp({
   apiKey: "AIzaSyAxM264qthYVjnwJPcMJNYu2nueBAmpY_4",
   authDomain: "web-iii-a91c8.firebaseapp.com",
   databaseURL: "https://web-iii-a91c8.firebaseio.com",
@@ -49,9 +49,9 @@ firebase.initializeApp({
 });
 
 
-let db = firebase.firestore()
+let db = fb.firestore()
 
 
 export default {
-  firebase, db
+  fb, db
 }
