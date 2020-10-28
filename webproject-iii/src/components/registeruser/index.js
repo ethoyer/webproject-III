@@ -38,8 +38,7 @@ const RegisterUser = () => {
       .then(result => {
         //add information to user cloudstore here
 
-        firebase.firestore().collection("users").add({
-          email: user.email,
+        firebase.firestore().collection("users").doc(user.email).set({
           fname: user.fname,
           lname: user.lname,
           dob: user.dob,

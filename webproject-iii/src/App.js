@@ -5,6 +5,8 @@ import Homepage from './components/homepage'; //importer komponenten Homepage fr
 import Login from './components/login';
 import RegisterUser from './components/registeruser';
 import RegisterUserSuccess from './components/registeruser/RegisterUserSuccess.js';
+import UserProfile from './components/profile';
+import EditUserInfo from './components/profile/EditUserInfo';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={RegisterUser} />
       <Route exact path="/registersuccess" component={RegisterUserSuccess} />
+      <Route exact path="/profile" component={UserProfile} />
+      <Route exact path="/editprofile" component={EditUserInfo} />
       </Router>
     </>
   );
