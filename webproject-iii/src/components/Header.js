@@ -4,10 +4,16 @@ import Logout from './Logout.js';
 
 function Header() {
     const user = useUser();
+    const url = window.location.href;
+    const profile = url.endsWith("/profile");
+
   return (
       <header>
+          <a href="/">Logo</a>
+          {/* displays logout, log in and profile link depending on user is logged in, logged out or not on the /profile page. */}
           {user && <Logout/>}
           {!user && <a href="/login">login</a>}
+          {!profile && <a href="/profile">Profile</a>}
       </header>
   )
 }
