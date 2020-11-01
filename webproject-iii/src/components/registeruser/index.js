@@ -61,7 +61,8 @@ const RegisterUser = () => {
 
   return (
     <>
-      <h1>Sign up</h1>
+    <div class="register">
+      <div class="title"><h1>Sign up</h1></div>
       <form onSubmit={registerSubmit}>
         <label>E-mail:</label>
         <input type="text" placeholder="Email" name="email" onChange={changeStateOnInput} />
@@ -84,6 +85,7 @@ const RegisterUser = () => {
         <button type="submit">Sign Up</button>
       </form>
       {user.error && <h4>{user.error}</h4>}
+      </div>
     </>
   )
 };
