@@ -6,6 +6,7 @@ import firebaseConfig from './firebaseConfig';
 import * as serviceWorker from './serviceWorker';
 import App from './App'; //  importer componenten som heter App fra filen app.js  se app.js for flere notater
 import Header from './components/Header.js';
+import Footer from './components/Footer';
 
 ReactDOM.render(
   <FirebaseAppProvider firebaseConfig={firebaseConfig}>
@@ -13,6 +14,7 @@ ReactDOM.render(
       <React.StrictMode>
         <Header />
         <App />
+        <Footer />
       </React.StrictMode>
     </Suspense>
   </FirebaseAppProvider>,
