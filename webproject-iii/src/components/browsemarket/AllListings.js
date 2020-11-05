@@ -91,62 +91,83 @@
 
 
 
-import React from 'react';
 import "firebase/firestore";
 import { useFirebaseApp } from 'reactfire';
 import Listing from './Listing';
 import * as firebase from 'firebase';
 
-// function collectDB(){
-//     firebase.firestore().collection('category').doc('books_and_supplies').collection('listings')
-//     .get()
-//     .then(querySnapshot => {
-//         const data = querySnapshot.docs.map(doc => doc.data());
-//         console.log(data[0].title);
-//     });
-// }
+import React, { useState, useEffect } from 'react';
 
-class Listings extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            listings: []
-        };
-    }
+// // function collectDB(){
+// //     firebase.firestore().collection('category').doc('books_and_supplies').collection('listings')
+// //     .get()
+// //     .then(querySnapshot => {
+// //         const data = querySnapshot.docs.map(doc => doc.data());
+// //         console.log(data[0].title);
+// //     });
+// // }
 
-    componentDidMount() {
+// let collectedListings = [];
 
-        firebase.firestore().collection('category').doc('books_and_supplies').collection('listings')
-        .get()
-        .then(querySnapshot => {
-            const data = querySnapshot.docs.map(doc => doc.data());
-            console.log(data);
-            // this.setState({ listings: data });
-        });
+// class Listings extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             listings: []
+//         };
+//     }
 
-        // const numbers = [1, 2, 3];
-        // this.setState({ listings: numbers });
-        console.log(this.state.listings);
-    }
+//     componentDidMount() {
+
+//         firebase.firestore().collection('category').doc('books_and_supplies').collection('listings')
+//         .get()
+//         .then(querySnapshot => {
+//             collectedListings = querySnapshot.docs.map(doc => doc.data());
+//             console.log(collectedListings);
+//             const result = Object.values(collectedListings);
+//             console.log(result);
+//             const test = result.map((data) => data);
+//             console.log("test: " + test);
+//             // this.setState({listings: data.map()})
+//             // this.setState({ listings: result });
+//         });
 
 
-//     this.props.firebase.db
-//     .collection('users')
-//     // .doc(this.props.firebase.db.collection('users').doc(this.props.firebase.authUser.uid))
-// .doc(this.props.firebase.db.collection('users').doc(this.props.authUser.uid))
-// .get()
-// .then(doc => {
-//     this.setState({ name: doc.data().name });
-//     // loading: false,
-//   });  
-// }
 
-    render() {
-        return (
-            <p>{this.state.listings}</p>
-        )
-    }
-};
+//         // const numbers = [1, 2, 3];
+//         // this.setState({ listings: numbers });
+//         // console.log(this.state.listings);
+//     }
+
+
+// //     this.props.firebase.db
+// //     .collection('users')
+// //     // .doc(this.props.firebase.db.collection('users').doc(this.props.firebase.authUser.uid))
+// // .doc(this.props.firebase.db.collection('users').doc(this.props.authUser.uid))
+// // .get()
+// // .then(doc => {
+// //     this.setState({ name: doc.data().name });
+// //     // loading: false,
+// //   });  
+// // }
+
+//     render() {
+//         let result = collectedListings.map(function (data, index) {
+//             console.log(result);
+//             return(
+//                 <div key={index}>
+//                     <p>title: {data.title}</p>
+//                 </div>
+//             )
+//         })
+//         return (
+//             <>
+//             {result}
+//             <p>Hello</p>
+//             </>
+//         )
+//     }
+// };
 
 
 
@@ -191,4 +212,63 @@ class Listings extends React.Component {
 //         </>
 //     )
 // }
+
+
+
+const Listings = () => {
+    const [books, setBooks] = useState([]);
+  
+    useEffect(() => {
+      console.log('effect');
+      const unsub = firebase.firestore().collection('category').doc('books_and_supplies').collection('listings').onSnapshot(snapshot => {
+        const allBooks = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setBooks(allBooks);
+      });
+      return () => {
+        console.log('cleanup');
+        unsub();
+      };
+    }, []);
+  
+    const deleteBook = id => {
+        firebase.firestore().collection('books')
+        .doc(id)
+        .delete();
+    };
+  
+    return (
+      <div className='section section-books'>
+        <div className='container'>
+          <h6>Books</h6>
+          <ul>
+            {books.map(book => (
+              <li key={book.id}>
+                <div className='card book'>
+                  <div className='book-image'>
+                  </div>
+                  <div className='book-details'>
+                    <div className='book-title'>{book.title}</div>
+                    <div className='book-author'>{book.author}</div>
+                  </div>
+                  <div
+                    onClick={() => deleteBook(book.id)}
+                    className='book-delete'
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <i className='material-icons'>delete</i>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
+  };
+
+
+
 export default Listings;
