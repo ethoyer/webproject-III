@@ -250,8 +250,8 @@ const Listings = () => {
                   <div className='book-image'>
                   </div>
                   <div className='book-details'>
-                    <div className='book-title'>{book.title}</div>
-                    <div className='book-author'>{book.author}</div>
+                    <div className='book-title'><p>title: </p>{book.title}</div>
+                    <div className='book-author'><p>price: </p>{book.price}</div>
                   </div>
                   <div
                     onClick={() => deleteBook(book.id)}
