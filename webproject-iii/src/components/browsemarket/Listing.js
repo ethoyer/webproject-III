@@ -1,11 +1,15 @@
 import React from 'react';
-const Listing = ({title, location}) => {
+import {useParams} from 'react-router-dom'
+
+
+const Listing = ({listing}) => {
+  const {id} = useParams();
+  console.log(listing);
+  
   return (
     <div>
-      <h>{title}</h>
-      <h>{location}</h>
+      <h1>hello</h1>
     </div>
-  )
-}
-
+  )}
 export default Listing;
+

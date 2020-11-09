@@ -11,6 +11,7 @@ import UserProfile from './components/profile';
 import EditUserInfo from './components/profile/EditUserInfo';
 import BrowseMarket from './components/browsemarket';
 import Error from './components/Error';
+import Listing from './components/browsemarket/Listing';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route exact path="/profile" component={UserProfile} />
       <Route exact path="/editprofile" component={EditUserInfo} />
       <Route exact path="/browseMarket" component={BrowseMarket} />
+      <Route path="/listing/:id" children={<Listing/>}/>
       <Route path="*" component={Error}/>
       </Switch>
     </Router>
