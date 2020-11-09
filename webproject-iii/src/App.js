@@ -9,6 +9,7 @@ import RegisterUser from './components/registeruser';
 import RegisterUserSuccess from './components/registeruser/RegisterUserSuccess.js';
 import UserProfile from './components/profile';
 import EditUserInfo from './components/profile/EditUserInfo';
+import NewListing from './components/newlisting/index';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route exact path="/registersuccess" component={RegisterUserSuccess} />
       <Route exact path="/profile" component={UserProfile} />
       <Route exact path="/editprofile" component={EditUserInfo} />
+      <Route exact path="/newlisting" component={NewListing} />
       </Router>
     </>
   );
