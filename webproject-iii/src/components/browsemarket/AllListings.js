@@ -2,7 +2,6 @@ import "firebase/firestore";
 import * as firebase from 'firebase';
 import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import Listing from './Listing';
 
 
 const Listings = () => {
@@ -21,7 +20,7 @@ const Listings = () => {
       };
     }, []);
     
-
+    
   
     return (
       <div>
@@ -30,7 +29,6 @@ const Listings = () => {
           <ul>
             {listing.map(listing => (
               <li key={listing.id}>
-                <Listing listing={listing}></Listing>
                     <Link to={`/listing/${listing.id}`}>
                     <img src={listing.img} alt=""></img>
                     <p>{listing.title}</p>
