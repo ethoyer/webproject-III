@@ -4,11 +4,12 @@ import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
 
-const Listings = () => {
+const Listings = (props) => {
     const [listing, setListing] = useState([]);
   
     useEffect(() => {
-      const docRef = firebase.firestore().collection('category').doc('books_and_supplies').collection('listings').onSnapshot(snapshot => {
+      //collects listings from chosen category
+      const docRef = firebase.firestore().collection('category').doc(props.filter).collection('listings').onSnapshot(snapshot => {
         const allListings = snapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
@@ -19,13 +20,17 @@ const Listings = () => {
         docRef();
       };
     }, []);
+
+    function test() {
+      console.log(props.filter);
+    };
     
     
   
     return (
       <div>
         <div>
-          <h6>Listing</h6>
+          <h6 onClick={test}>Listing</h6>
           <ul>
             {listing.map(listing => (
               <li key={listing.id}>

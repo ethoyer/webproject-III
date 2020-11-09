@@ -12,7 +12,7 @@ function Homepage() {
         <h1>Social Integration Services</h1>
         <CategoryButton url="/" title="Mentorships"/>
         <CategoryButton url="/" title="Courses"/>
-        <CategoryButton url="/marketplace" title="Marketplace"/>
+        <CategoryButton url="/browsemarket" title="Marketplace"/>
       </header>
     </div>
   )
