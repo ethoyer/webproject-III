@@ -16,6 +16,7 @@ import Listing from './components/browsemarket/Listing';
 
 function App() {
   return (
+    <>
     <Router>
     <Switch>
       <Route exact path="/" component={Homepage} />
@@ -26,7 +27,12 @@ function App() {
       <Route exact path="/registersuccess" component={RegisterUserSuccess} />
       <Route exact path="/profile" component={UserProfile} />
       <Route exact path="/editprofile" component={EditUserInfo} />
-      </Router>
+      <Route exact path="/newListing" component={NewListing}/>
+      <Route exact path="/browseMarket" component={BrowseMarket} />
+      <Route path="/listing/:id" children={<Listing/>}/>
+      <Route path="*" component={Error}/>
+      </Switch>
+    </Router>
     </>
   );
 }
