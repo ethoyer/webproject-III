@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
+import './login.css';
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -13,7 +14,7 @@ const Login = () => {
     setUser({
       ...user,
       [e.target.name]: e.target.value,
-      error: '',
+      error: ''
     })
   };
 
