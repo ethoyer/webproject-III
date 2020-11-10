@@ -1,0 +1,43 @@
+/*---- Login page ----*/
+
+#registerbox{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+  }
+   .form, .a{
+    background: #f1f1f1;
+    text-decoration: none;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  .login {
+    text-align: center;
+  }
+  
+  input[type="text"], input[type=password] {
+    width: 30%;
+    padding: 12px;  
+    margin: 8px 0;
+  }
+  button[type="submit"]{
+    color: white;
+    background-color: rgba(137, 136, 134, 1); 
+    margin: 20px 0;
+    border: none;
+    width: 20%;
+    padding: 14px 20px;
+  }
+  
+  button[type="submit"]:hover {
+      background-color: green;
+      color: black;
+    }
+    
+    .button[type="submit"] a.active {
+      background-color: #4CAF50;
+  }
+  
