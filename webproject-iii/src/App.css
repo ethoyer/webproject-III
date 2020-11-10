@@ -30,33 +30,6 @@
   text-align: center;
   text-decoration: none;
 }
-/*---- Login page ----*/
- .form, .a{
-  background-color: #282c34;
-  background: #f1f1f1;
-  text-decoration: none;
-  text-align: center;
-  padding: 12px 20px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-.login {
-  text-align: center;
-
-}
-input[type="text"], input[type=password] {
-  width: 15%;
-  padding: 12px 20px;
-  margin: 8px 0;
-}
-button[type="submit"]{
-  color: #61dafb;
-  background-color: rgba(137, 136, 134, 1); 
-  margin: 8px 0;
-  border: none;
-  width: 10%;
-  padding: 14px 20px;
-}
 
 /*---- Register Page ----*/
 .register{
