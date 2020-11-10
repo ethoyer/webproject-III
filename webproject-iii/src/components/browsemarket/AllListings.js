@@ -2,49 +2,65 @@ import "firebase/firestore";
 import * as firebase from 'firebase';
 import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-
+import {Card, CardDeck, Button} from 'react-bootstrap';
 
 const Listings = (props) => {
     const [listing, setListing] = useState([]);
-  
+    const [word, setWord] = useState();
     useEffect(() => {
-      //collects listings from chosen category
-      const docRef = firebase.firestore().collection('category').doc(props.filter).collection('listings').onSnapshot(snapshot => {
-        const allListings = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        setListing(allListings);
-      });
-      return () => {
-        docRef();
-      };
-    }, []);
-
+      if(!word){
+        //collects listings from chosen category
+        const docRef = firebase.firestore().collection('category').doc(props.filter).collection('listings').onSnapshot(snapshot => {
+          const allListings = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+          }));
+          setListing(allListings);
+        });
+        return () => {
+          docRef();
+        };
+      }      
+    }, [listing, word, props.filter]);
+   
+    const handleChange = e => {
+      setWord(e);
+    }
+    const search = e => {
+      e.preventDefault();
+      if (word !== "") {
+        let newList = [];
+        newList = listing.filter(list =>
+          list.title.includes(word)
+          );
+          setListing(newList);
+      }
+    }
     function test() {
       console.log(props.filter);
     };
     
-    
   
     return (
-      <div>
-        <div>
+        <>
+        <input placeholder={"search"} onChange={e => handleChange(e.target.value)}/>
+        <Button onClick={(e) => search(e)}>Go!</Button>
           <h6 onClick={test}>Listing</h6>
-          <ul>
+          <CardDeck>
             {listing.map(listing => (
-              <li key={listing.id}>
-                    <Link to={`/listing/${listing.id}`}>
-                    <img src={listing.img} alt=""></img>
-                    <p>{listing.title}</p>
-                    <p>$ {listing.price}</p>
-                    <p>{listing.city}, {listing.country}</p>   
-                    </Link>
-              </li>
+              <Card key={listing.id} className="shadow">
+                    <Card.Body>
+                      <Link to={`/listing/${listing.id}`}>
+                        <Card.Img src={listing.img} variant="top"></Card.Img>
+                        <Card.Title>{listing.title}</Card.Title>
+                        <Card.Text>{listing.price}</Card.Text>
+                        <Card.Text>{listing.city}, {listing.country}</Card.Text>   
+                      </Link>
+                    </Card.Body>
+              </Card>
             ))}
-          </ul>
-        </div>
-      </div>
+          </CardDeck>
+        </>
     );
   };
 

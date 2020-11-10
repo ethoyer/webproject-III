@@ -40,6 +40,46 @@
   text-align: center;
 }
 
+}
+input[type="text"], input[type=password] {
+  width: 15%;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+button[type="submit"]{
+  color: #61dafb;
+  background-color: rgba(137, 136, 134, 1); 
+  margin: 8px 0;
+  border: none;
+  width: 10%;
+  padding: 14px 20px;
+}
+
+/*---- Register Page ----*/
+.register{
+  background: #f1f1f1;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  
+}
+.title {
+  text-align: center;
+}
+/*--cards--*/
+
+.card-deck{
+  width: 60rem;
+  
+}
+.card{
+  border: #282c34;
+  width: 15rem;
+}
+.card a {
+text-decoration: none;
+color:black;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
