@@ -23,19 +23,19 @@ const Listings = (props) => {
       }      
     }, [listing, word, props.filter]);
    
-    const handleChange = e => {
-      setWord(e);
-    }
-    const search = e => {
-      e.preventDefault();
-      if (word !== "") {
-        let newList = [];
-        newList = listing.filter(list =>
-          list.title.includes(word)
-          );
-          setListing(newList);
-      }
-    }
+    // const handleChange = e => {
+    //   setWord(e);
+    // }
+    // const search = e => {
+    //   e.preventDefault();
+    //   if (word !== "") {
+    //     let newList = [];
+    //     newList = listing.filter(list =>
+    //       list.title.includes(word)
+    //       );
+    //       setListing(newList);
+    //   }
+    // }
     function test() {
       console.log(props.filter);
     };
@@ -43,8 +43,8 @@ const Listings = (props) => {
   
     return (
         <>
-        <input placeholder={"search"} onChange={e => handleChange(e.target.value)}/>
-        <Button onClick={(e) => search(e)}>Go!</Button>
+        {/* <input placeholder={"search"} onChange={e => handleChange(e.target.value)}/>
+        <Button onClick={(e) => search(e)}>Go!</Button> */}
           <h6 onClick={test}>Listing</h6>
           <CardDeck>
             {listing.map(listing => (
