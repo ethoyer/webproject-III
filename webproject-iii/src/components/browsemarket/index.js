@@ -1,6 +1,7 @@
 import React from 'react'
 import "firebase/firestore";
 import Listings from './AllListings';
+import './header.css';
 
 class BrowseMarket extends React.Component {
   constructor(props) {
