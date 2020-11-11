@@ -68,6 +68,22 @@ button[type="submit"]{
 .title {
   text-align: center;
 }
+
+/* Categories Browsemarket */
+
+#housing, #books_and_supplies, #furniture, #services {
+  width: 27rem;
+  padding: 60px;
+  margin: 70px;
+  justify-content: center;
+
+/*---- Footer ----*/ 
+footer {
+  color: white;
+  text-align: center;
+  background: #282c34;
+}
+
 /*--cards--*/
 
 .card-deck{
