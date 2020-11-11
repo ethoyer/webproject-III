@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
 import "firebase/firestore";
+import '../../src/components/header.css'
+
 
 
 const RegisterUser = () => {
