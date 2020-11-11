@@ -2,13 +2,13 @@ import "firebase/firestore";
 import * as firebase from 'firebase';
 import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import {Card, CardDeck, Button} from 'react-bootstrap';
+import {Card, CardDeck} from 'react-bootstrap';
 
 const Listings = (props) => {
     const [listing, setListing] = useState([]);
-    const [word, setWord] = useState();
+    // const [word, setWord] = useState();
     useEffect(() => {
-      if(!word){
+      // if(!word){
         //collects listings from chosen category
         const docRef = firebase.firestore().collection('category').doc(props.filter).collection('listings').onSnapshot(snapshot => {
           const allListings = snapshot.docs.map(doc => ({
@@ -20,8 +20,8 @@ const Listings = (props) => {
         return () => {
           docRef();
         };
-      }      
-    }, [listing, word, props.filter]);
+      // }      
+    }, [listing]);
    
     // const handleChange = e => {
     //   setWord(e);
