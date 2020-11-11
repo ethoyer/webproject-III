@@ -1,6 +1,7 @@
 import React from 'react';
 import { useUser } from 'reactfire';
 import Logout from './Logout.js';
+import './header.css';
 
 function Header() {
     const user = useUser();
