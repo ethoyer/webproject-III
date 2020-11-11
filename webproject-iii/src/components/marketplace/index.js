@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../App.css';
 import CategoryButton from '../homepage/CategoryButton'
+import '../../src/components/header.css'
+
 
 function Categories() {
     return (
