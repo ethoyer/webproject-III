@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../App.css';
 import CategoryButton from './CategoryButton'
+import '../../src/components/header.css'
+
 
 //alle classNames er her de som kommer default når du lager en ny react app. CSS i App.css kom også som default og er ikke noe vi-
 //kommer til å beholde.
