@@ -13,7 +13,9 @@ ReactDOM.render(
     <Suspense fallback={<h3>Loading...</h3>}>
       <React.StrictMode>
         <Header />
+        <main>
         <App />
+        </main>
         <Footer />
       </React.StrictMode>
     </Suspense>
