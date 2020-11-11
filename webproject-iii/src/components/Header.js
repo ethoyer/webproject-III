@@ -5,7 +5,6 @@ import './header.css';
 
 function Header() {
     const user = useUser();
-    const url = window.location.href;
 
   return (
       <header>

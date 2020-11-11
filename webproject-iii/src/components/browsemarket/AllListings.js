@@ -21,7 +21,7 @@ const Listings = (props) => {
           docRef();
         };
       // }      
-    }, [listing]);
+    }, []);
    
     // const handleChange = e => {
     //   setWord(e);
