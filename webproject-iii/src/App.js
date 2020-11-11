@@ -14,7 +14,7 @@ import EditUserInfo from './components/profile/EditUserInfo';
 import NewListing from './components/newlisting/index';
 import BrowseMarket from './components/browsemarket';
 import Error from './components/Error';
-import Listing from './components/browsemarket/Listing';
+// import Listing from './components/browsemarket/Listing';
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
       <Route exact path="/editprofile" component={EditUserInfo} />
       <Route exact path="/newListing" component={NewListing}/>
       <Route exact path="/browseMarket" component={BrowseMarket} />
-      <Route path="/listing/:id" children={<Listing/>}/>
+      {/* <Route path="/listing/:id" children={<Listing/>}/> */}
       <Route path="*" component={Error}/>
       </Switch>
     </Router>
