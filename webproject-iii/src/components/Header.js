@@ -9,11 +9,13 @@ function Header() {
 
   return (
       <header>
+          <nav>
           <a href="/">Logo</a>
           {/* displays logout, log in and profile link depending on user is logged in or logged out. */}
           {user && <a href="/profile">Profile</a>}
           {user && <Logout/>}
           {!user && <a href="/login">login</a>}
+          </nav>
       </header>
   )
 }

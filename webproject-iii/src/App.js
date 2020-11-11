@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css'
-import '../../src/components/header.css'
+import './components/header.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './components/header.css';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Homepage from './components/homepage'; //importer komponenten Homepage fra Homepage.js
 import CategoryButton from './components/homepage/CategoryButton';
