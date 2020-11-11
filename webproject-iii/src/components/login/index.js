@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
 import './login.css';
-import '../../src/components/header.css'
 
 
 const Login = () => {
