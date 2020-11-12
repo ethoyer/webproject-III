@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => (
     <footer>
-        <p>&copy; 2020, group 1</p>
+        <p>Webproject III, group 1 | DigitalNorway</p> 
     </footer>
 );
 
