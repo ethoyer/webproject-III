@@ -2,40 +2,45 @@ import "firebase/firestore";
 import * as firebase from 'firebase';
 import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import {Card, CardDeck} from 'react-bootstrap';
+import {Card, CardDeck, Button} from 'react-bootstrap';
 
 const Listings = (props) => {
     const [listing, setListing] = useState([]);
-    // const [word, setWord] = useState();
+    const [baselist, setBaseList] = useState([]); // everything all the time
+    const [word, setWord] = useState();
     useEffect(() => {
-      // if(!word){
+       if(baselist.length === 0){
         //collects listings from chosen category
         const docRef = firebase.firestore().collection('category').doc(props.filter).collection('listings').onSnapshot(snapshot => {
           const allListings = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
           }));
+          setBaseList(allListings);
           setListing(allListings);
         });
         return () => {
           docRef();
         };
-      // }      
-    }, []);
+       }
+       else if(!word || word.length === 0){
+         setListing(baselist);
+       }      
+    }, [baselist, word, props.filter]);
    
-    // const handleChange = e => {
-    //   setWord(e);
-    // }
-    // const search = e => {
-    //   e.preventDefault();
-    //   if (word !== "") {
-    //     let newList = [];
-    //     newList = listing.filter(list =>
-    //       list.title.includes(word)
-    //       );
-    //       setListing(newList);
-    //   }
-    // }
+    const handleChange = e => {
+      setWord(e);
+    }
+    const search = e => {
+      e.preventDefault();
+      if (word !== "") {
+        let newList = [];
+        newList = listing.filter(list =>
+          list.title.includes(word)
+          );
+          setListing(newList);
+      }
+    }
     function test() {
       console.log(props.filter);
     };
@@ -43,8 +48,8 @@ const Listings = (props) => {
   
     return (
         <>
-        {/* <input placeholder={"search"} onChange={e => handleChange(e.target.value)}/>
-        <Button onClick={(e) => search(e)}>Go!</Button> */}
+        <input placeholder={"search"} onChange={e => handleChange(e.target.value)}/>
+        <Button onClick={(e) => search(e)}>Go!</Button>
           <h6 onClick={test}>Listing</h6>
           <CardDeck>
             {listing.map(listing => (
