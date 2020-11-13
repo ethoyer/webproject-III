@@ -15,6 +15,7 @@ import NewListing from './components/newlisting/index';
 import BrowseMarket from './components/browsemarket';
 import Error from './components/Error';
 import Listing from './components/browsemarket/Listing';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -26,9 +27,9 @@ function App() {
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={RegisterUser} />
       <Route exact path="/registersuccess" component={RegisterUserSuccess} />
-      <Route exact path="/profile" component={UserProfile} />
+      <PrivateRoute exact path="/profile" component={UserProfile} />
       <Route exact path="/editprofile" component={EditUserInfo} />
-      <Route exact path="/newListing" component={NewListing}/>
+      <PrivateRoute exact path="/newListing" component={NewListing}/>
       <Route exact path="/browseMarket" component={BrowseMarket} />
       <Route path="/listing/:id" children={<Listing/>}/>
       <Route path="*" component={Error}/>
@@ -39,4 +40,4 @@ function App() {
 }
 
 
-export default App; //exporter alt som står i function App() som en component med navnet App
+export default App;
