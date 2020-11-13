@@ -1,6 +1,7 @@
 import React from 'react'
 import "firebase/firestore";
 import Listings from './AllListings';
+import Filter from './Filter';
 
 class BrowseMarket extends React.Component {
   constructor(props) {
@@ -12,6 +13,10 @@ class BrowseMarket extends React.Component {
     let Category = e.target.id;
     this.setState({ categoryFilter: Category });
   }
+
+  categoryChangeThroughFilter = (newChosenCategory) => {
+    this.setState({ categoryFilter: newChosenCategory });
+}
 
   render() {
     return (
@@ -27,6 +32,7 @@ class BrowseMarket extends React.Component {
         {/* displays listings from relevant category when one is chosen */}
         {this.state.categoryFilter && <div>
           <h1>BrowseMarket</h1>
+          <Filter filter={this.state.categoryFilter}  categoryChangeThroughFilter={this.categoryChangeThroughFilter}/>
           <Listings filter={this.state.categoryFilter} />
         </div>}
       </>
