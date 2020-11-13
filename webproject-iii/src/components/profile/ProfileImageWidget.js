@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ImageWidget extends React.Component {
+class ProfileImageWidget extends React.Component {
   constructor(props) {
     super(props);
 this.showWidget = this.showWidget.bind(this);
@@ -11,13 +11,13 @@ this.showWidget = this.showWidget.bind(this);
   }
   
   render() {
-    const imageArray = this.props.imageArray;
+    const newProfileImage = this.props.newProfileImage;
     const widget = window.cloudinary.createUploadWidget({ //cloudinary's upload images widget
       cloudName: 'dysv4qjk7',
       uploadPreset: 'jkkfqmxl'
     }, (error, result) => {
       if (!error && result && result.event === "success") {
-        imageArray.push(result.info.secure_url); //pushes clodynary image url to array to be added in database
+        newProfileImage.push(result.info.secure_url); //pushes clodynary image url to array to be added in database
       }
     }
     )
@@ -27,4 +27,4 @@ this.showWidget = this.showWidget.bind(this);
   }
 }
 
-export default ImageWidget;
+export default ProfileImageWidget;

@@ -3,12 +3,14 @@ import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
 import "firebase/firestore";
 import { useUser } from 'reactfire';
+import ProfileImageWidget from './ProfileImageWidget';
 
 
 const EditUserInfo = () => {
   const userInfo = useUser();
   const firebase = useFirebaseApp();
   const userReference = firebase.firestore().collection('users').doc(userInfo.email);
+  let newProfileImage = [];
 
   const submitUserEdit = async (e) => {
     e.preventDefault(); //prevents site from reloading so feedback message can be shown
@@ -18,7 +20,8 @@ const EditUserInfo = () => {
       dob: document.getElementById("userinputdob").value,
       country: document.getElementById("userinputcountry").value,
       city: document.getElementById("userinputcity").value,
-      phoneno: document.getElementById("userinputphoneno").value
+      phoneno: document.getElementById("userinputphoneno").value,
+      profileimg: newProfileImage
     })
       .then(function () {
         document.getElementById("userinfoupdate").innerHTML = "User information has been updated."
@@ -45,6 +48,7 @@ const EditUserInfo = () => {
       document.getElementById("userinputcountry").value = doc.data().country;
       document.getElementById("userinputcity").value = doc.data().city;
       document.getElementById("userinputphoneno").value = doc.data().phoneno;
+      document.getElementById("currentUserProfileImage").setAttribute('src', doc.data().profileimg)
     }
   }).catch(function (error) { // logs error message
     console.log("Error getting document:", error);
@@ -65,6 +69,9 @@ const EditUserInfo = () => {
         <input id="userinputcity" type="text" placeholder="City" name="city" />
         <label>Phone no.:</label>
         <input id="userinputphoneno" type="tel" placeholder="+47 888 88 888" name="phoneno" />
+        <p>Change profile image:</p>
+        <img id="currentUserProfileImage" alt="profile image" src=""></img>
+        <ProfileImageWidget newProfileImage={newProfileImage} />
         <button type="submit">Save new user information</button>
       </form>
       <p id="userinfoupdate"></p>
