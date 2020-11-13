@@ -2,7 +2,7 @@ import "firebase/firestore";
 import * as firebase from 'firebase';
 import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import {Card, CardDeck, Button} from 'react-bootstrap';
+import {Card, CardDeck} from 'react-bootstrap';
 
 const Listings = (props) => {
     const [listing, setListing] = useState([]);
@@ -43,23 +43,25 @@ const Listings = (props) => {
           setListing(newList);
       }
     }
+
+    
   
     return (
         <>
         <input placeholder={"search"} onChange={e => handleChange(e.target.value)}/>
-        <Button onClick={(e) => search(e)}>Go!</Button>
           <h6>Listing</h6>
+        <button onClick={(e) => search(e)}>Go!</button>
           <CardDeck>
             {listing.map(listing => (
               <Card key={listing.id} className="shadow">
-                    <Card.Body>
-                      <Link to={`/listing/${listing.id}`}>
-                        <Card.Img src={listing.img} variant="top"></Card.Img>
-                        <Card.Title>{listing.title}</Card.Title>
-                        <Card.Text>{listing.price}</Card.Text>
-                        <Card.Text>{listing.city}, {listing.country}</Card.Text>   
-                      </Link>
-                    </Card.Body>
+              <Link to={`/listing/${listing.id}`}>
+                  <Card.Img src={listing.images[0]} variant="top"></Card.Img>
+                  <Card.Body>
+                      <Card.Title>{listing.title}</Card.Title>
+                      <Card.Text>{listing.price}</Card.Text>
+                      <Card.Text>{listing.city}, {listing.country}</Card.Text> 
+                  </Card.Body>   
+                </Link>    
               </Card>
             ))}
           </CardDeck>
