@@ -3,8 +3,6 @@ import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
 import "firebase/firestore";
 
-
-
 const RegisterUser = () => {
   let registerUser = false; //used to keep track of whether account is successfully registered or not
 
@@ -34,10 +32,9 @@ const RegisterUser = () => {
   const registerSubmit = async (e) => {
     e.preventDefault();
     //signs up account to firebase
-    await firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+    firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
       .then(result => {
         //add information to user cloudstore here
-
         firebase.firestore().collection("users").doc(user.email).set({
           fname: user.fname,
           lname: user.lname,
@@ -54,16 +51,15 @@ const RegisterUser = () => {
               window.location = '/registersuccess';
             }
           })
-          .catch(error => {
-            console.log(error.message)
-          })
+      }).catch(function(error) {
+        document.getElementById('registerErrorMessage').innerHTML = error.message;
       })
   }
 
   return (
     <>
-    <div class="register">
-      <div class="title"><h1>Sign up</h1></div>
+    <div className="register">
+      <div className="title"><h1>Sign up</h1></div>
       <form onSubmit={registerSubmit}>
         <label>E-mail:</label>
         <input type="text" placeholder="Email" name="email" onChange={changeStateOnInput} />
@@ -85,7 +81,7 @@ const RegisterUser = () => {
 
         <button type="submit">Sign Up</button>
       </form>
-      {user.error && <h4>{user.error}</h4>}
+      <p id="registerErrorMessage"></p>
       </div>
     </>
   )
