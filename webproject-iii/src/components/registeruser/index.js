@@ -17,7 +17,7 @@ const RegisterUser = () => {
     country: '',
     city: '',
     phoneno: '',
-    error: '',
+    error: ''
   });
 
   const firebase = useFirebaseApp();
@@ -28,7 +28,6 @@ const RegisterUser = () => {
       [e.target.name]: e.target.value,
       error: '',
     })
-    console.log(user.fname);
   };
 
   // Submit function (Create account)
@@ -45,7 +44,8 @@ const RegisterUser = () => {
           dob: user.dob,
           country: user.country,
           city: user.city,
-          phoneno: user.phoneno
+          phoneno: user.phoneno,
+          profileimg: 'https://res.cloudinary.com/dysv4qjk7/image/upload/v1605276354/profile_placeholder_ia0maj.png'
         })
           .then(result => {
             //redirects after user has been successfully registered

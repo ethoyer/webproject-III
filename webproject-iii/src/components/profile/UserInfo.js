@@ -15,6 +15,7 @@ function UserInformation() {
       document.getElementById("userage").innerHTML = doc.data().dob;
       document.getElementById("userlocationcountry").innerHTML = doc.data().country;
       document.getElementById("userlocationcity").innerHTML = doc.data().city;
+      document.getElementById("userProfileImage").setAttribute('src', doc.data().profileimg)
     } else { // displays error message if document does not exist
       document.getElementById("userinformationerror").innerHTML = "Error collecting user information.";
     }
@@ -28,7 +29,7 @@ function UserInformation() {
       <div id="userProfile">
         <p id="userinformationerror"></p>
         <a href="/editprofile">Edit Profile</a>
-        <img src=""></img>
+        <img id="userProfileImage" alt="profile image" src=""></img>
         <p>Name: <span id="userfullname"></span></p>
         <p>Birthdate: <span id="userage"></span></p>
         <p id="userlocation">Location: <span id="userlocationcountry"></span>, <span id="userlocationcity"></span></p>
