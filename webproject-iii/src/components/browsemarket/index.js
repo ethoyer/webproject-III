@@ -15,7 +15,6 @@ class BrowseMarket extends React.Component {
   }
 
   categoryChangeThroughFilter = (newChosenCategory) => {
-    console.log("new category: " + newChosenCategory);
     this.setState({ categoryFilter: newChosenCategory });
 }
 
