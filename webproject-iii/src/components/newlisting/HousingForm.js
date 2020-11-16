@@ -75,10 +75,10 @@ const HousingForm = () => {
         <input type="date" name="housingAvailableFromDate" id="housingAvailableFromDate" required />
 
         <label htmlFor="currencyHousingForm">Currency</label>
-        <select id="currencyForm" name="currencyHousingForm" id="currencyHousingForm" required >
-          <option value="currencyFormEUR" default>EUR</option>
-          <option value="currencyFormUSD">USD</option>
-          <option value="currencyFormNOK">NOK</option>
+        <select id="currencyForm" name="currencyHousingForm" id="currencyHousingForm" required>
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+          <option value="NOK">NOK</option>
         </select>
         <label htmlFor="hosingRentPrice" >Monthly rent:</label>
         <input type="number" name="hosingRentPrice" id="housingRentPrice" required />
