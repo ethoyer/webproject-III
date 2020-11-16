@@ -11,7 +11,7 @@ const Listings = (props) => {
     const [newCategory, setNewCategory] = useState(); //listens to category change in filter
 
     useEffect(() => {
-       if(baselist.lenght === 0 || newCategory != props.filter){ //if first load or chosen category has changed
+       if(baselist.lenght === 0 || newCategory !== props.filter){ //if first load or chosen category has changed
         setNewCategory(props.filter);
         // collects listings from chosen category
         const docRef = firebase.firestore().collection('category').doc(props.filter).collection('listings').onSnapshot(snapshot => {
@@ -31,44 +31,41 @@ const Listings = (props) => {
     }, [baselist, word, props.filter]);
    
     const handleChange = e => {
-      setWord(e);
+      setWord(e.toLowerCase());
     }
     const search = e => {
       e.preventDefault();
       if (word !== "") {
         let newList = [];
+        
         newList = listing.filter(list =>
-          list.title.includes(word)
+          list.title.toString().toLowerCase().includes(word)
           );
           setListing(newList);
       }
     }
 
-    
-  
     return (
         <>
         <input placeholder={"search"} onChange={e => handleChange(e.target.value)}/>
-          <h6>Listing</h6>
         <button onClick={(e) => search(e)}>Go!</button>
           <CardDeck>
             {listing.map(listing => (
               <Card key={listing.id} className="shadow">
-              <Link to={`/listing/${listing.id}`}>
-                  <Card.Img src={listing.images[0]} variant="top"></Card.Img>
-                  <Card.Body>
-                      <Card.Title>{listing.title}</Card.Title>
-                      <Card.Text>{listing.price}</Card.Text>
-                      <Card.Text>{listing.city}, {listing.country}</Card.Text> 
-                  </Card.Body>   
-                </Link>    
+                    <Card.Body>
+                      <Link to={`/${props.filter}/${listing.id}`}>
+                        <Card.Img src={listing.img} variant="top"></Card.Img>
+                        <Card.Title>{listing.title}</Card.Title>
+                        <Card.Text>{listing.price}</Card.Text>
+                        <Card.Text>{listing.city}, {listing.country}</Card.Text>   
+                      </Link>
+                    </Card.Body>
               </Card>
             ))}
           </CardDeck>
         </>
     );
   };
-
 
 
 export default Listings;
