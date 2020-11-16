@@ -29,10 +29,11 @@ const Listings = (props) => {
          setListing(baselist);
        }      
     }, [baselist, word, props.filter]);
-   
+
     const handleChange = e => {
       setWord(e.toLowerCase());
     }
+  
     const search = e => {
       e.preventDefault();
       if (word !== "") {
@@ -44,32 +45,6 @@ const Listings = (props) => {
           setListing(newList);
       }
     }
-  }
-
-    
-  
-    return (
-        <>
-        <input placeholder={"search"} onChange={e => handleChange(e.target.value)}/>
-          <h6>Listing</h6>
-        <button onClick={(e) => search(e)}>Go!</button>
-          <CardDeck>
-            {listing.map(listing => (
-              <Card key={listing.id} className="shadow">
-              <Link to={`/listing/${listing.id}`}>
-                  <Card.Img src={listing.images[0]} variant="top"></Card.Img>
-                  <Card.Body>
-                      <Card.Title>{listing.title}</Card.Title>
-                      <Card.Text>{listing.price}</Card.Text>
-                      <Card.Text>{listing.city}, {listing.country}</Card.Text> 
-                  </Card.Body>   
-                </Link>    
-              </Card>
-            ))}
-          </CardDeck>
-        </>
-    );
-  };
 
 
   return (
@@ -92,8 +67,7 @@ const Listings = (props) => {
       </CardDeck>
     </div>
   );
-};
-
+        };
 
 
 export default Listings;
