@@ -11,8 +11,10 @@ const HousingForm = () => {
   let housingImages = []; //array holding all images user has uploaded
 
   const submitHousingForm = async (e) => {
+    e.preventDefault();
     firebase.firestore().collection("category").doc("housing").collection("listings").doc().set({ //submits information to database
       seller: user.email,
+      title: document.getElementById("housingTitle").value,
       country: document.getElementById("housingCountry").value,
       city: document.getElementById("housingCity").value,
       street: document.getElementById("housingStreet").value,
@@ -29,35 +31,18 @@ const HousingForm = () => {
       // includedInRent: document.getElementById("housingIncludes").value
     })
       .then(result => {
-
+        window.location = '/newlistingsuccess';
       })
       .catch(error => {
         console.log(error.message)
       })
   }
 
-  // const widget = window.cloudinary.createUploadWidget({ //cloudinary upload images widget
-  //   cloudName: 'dysv4qjk7',
-  //   uploadPreset: 'jkkfqmxl'
-  // }, (error, result) => {
-  //   if (!error && result && result.event === "success") {
-  //     console.log('Done! Here is the image info: ', result.info);
-  //     console.log('Done! Here is the image info: ', result.info.path);
-  //     housingImages.push(result.info.secure_url);
-  //   }
-  // }
-  // )
-
-  // function showWidget(widget) {
-  //   widget.open();
-  //   console.log("Open!");
-  // }
-
   return (
     <>
-      {/* <p id="upload_widget" className="cloudinary-button" onClick={showWidget(widget)}>Upload files</p> */}
-
       <form onSubmit={submitHousingForm}>
+      <label htmlFor="housingTitle">Country:</label>
+        <input type="text" name="housingTitle" id="housingTitle" required />
         <p>Location</p>
         <label htmlFor="housingCountry">Country:</label>
         <input type="text" name="housingCountry" id="housingCountry" required />
