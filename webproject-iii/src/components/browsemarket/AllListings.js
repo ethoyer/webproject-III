@@ -1,14 +1,14 @@
 import "firebase/firestore";
 import * as firebase from 'firebase';
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {Card, CardDeck} from 'react-bootstrap';
+import { Card, CardDeck, Image } from 'react-bootstrap';
 
 const Listings = (props) => {
-    const [listing, setListing] = useState([]);
-    const [baselist, setBaseList] = useState([]); // everything all the time
-    const [word, setWord] = useState();
-    const [newCategory, setNewCategory] = useState(); //listens to category change in filter
+  const [listing, setListing] = useState([]);
+  const [baselist, setBaseList] = useState([]); // everything all the time
+  const [word, setWord] = useState();
+  const [newCategory, setNewCategory] = useState(); //listens to category change in filter
 
     useEffect(() => {
        if(baselist.lenght === 0 || newCategory !== props.filter){ //if first load or chosen category has changed
@@ -44,28 +44,56 @@ const Listings = (props) => {
           setListing(newList);
       }
     }
+  }
 
+    
+  
     return (
         <>
         <input placeholder={"search"} onChange={e => handleChange(e.target.value)}/>
+          <h6>Listing</h6>
         <button onClick={(e) => search(e)}>Go!</button>
           <CardDeck>
             {listing.map(listing => (
               <Card key={listing.id} className="shadow">
-                    <Card.Body>
-                      <Link to={`/${props.filter}/${listing.id}`}>
-                        <Card.Img src={listing.img} variant="top"></Card.Img>
-                        <Card.Title>{listing.title}</Card.Title>
-                        <Card.Text>{listing.price}</Card.Text>
-                        <Card.Text>{listing.city}, {listing.country}</Card.Text>   
-                      </Link>
-                    </Card.Body>
+              <Link to={`/listing/${listing.id}`}>
+                  <Card.Img src={listing.images[0]} variant="top"></Card.Img>
+                  <Card.Body>
+                      <Card.Title>{listing.title}</Card.Title>
+                      <Card.Text>{listing.price}</Card.Text>
+                      <Card.Text>{listing.city}, {listing.country}</Card.Text> 
+                  </Card.Body>   
+                </Link>    
               </Card>
             ))}
           </CardDeck>
         </>
     );
   };
+
+
+  return (
+    <div id="browsemarketListings">
+      <input placeholder={"search"} onChange={e => handleChange(e.target.value)} />
+      <button onClick={(e) => search(e)}>Go!</button>
+      <CardDeck>
+        {listing.map(listing => (
+          <Card key={listing.id} className="shadow">
+            <Link to={`/listing/${listing.id}`}>
+              <Card.Img src={listing.images[0]} variant="top"></Card.Img>
+              <Card.Body>
+                <Card.Title>{listing.title}</Card.Title>
+                <Card.Text>{listing.monthlyRent} {listing.currency}</Card.Text>
+                <Card.Text>{listing.city}, {listing.country}</Card.Text>
+              </Card.Body>
+            </Link>
+          </Card>
+        ))}
+      </CardDeck>
+    </div>
+  );
+};
+
 
 
 export default Listings;

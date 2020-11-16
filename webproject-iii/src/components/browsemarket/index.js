@@ -2,6 +2,7 @@ import React from 'react'
 import "firebase/firestore";
 import Listings from './AllListings';
 import Filter from './Filter';
+import '../../browsemarket.css';
 
 class BrowseMarket extends React.Component {
   constructor(props) {
@@ -30,8 +31,8 @@ class BrowseMarket extends React.Component {
         </div>}
 
         {/* displays listings from relevant category when one is chosen */}
-        {this.state.categoryFilter && <div>
-          <h1>BrowseMarket</h1>
+        {this.state.categoryFilter && <div id="browsingmarket">
+          <h1>Marketplace</h1>
           <Filter filter={this.state.categoryFilter}  categoryChangeThroughFilter={this.categoryChangeThroughFilter}/>
           <Listings filter={this.state.categoryFilter} />
         </div>}
