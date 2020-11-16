@@ -4,7 +4,8 @@ import './components/header.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './components/header.css';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import Homepage from './components/homepage'; //importer komponenten Homepage fra Homepage.js
+import PrivateRoute from './components/PrivateRoute';
+import Homepage from './components/homepage';
 import CategoryButton from './components/homepage/CategoryButton';
 import Login from './components/login';
 import RegisterUser from './components/registeruser';
@@ -15,7 +16,7 @@ import NewListing from './components/newlisting/index';
 import BrowseMarket from './components/browsemarket';
 import Error from './components/Error';
 import Listing from './components/browsemarket/Listing';
-import PrivateRoute from './components/PrivateRoute';
+import newListingSucess from './components/newlisting/newListingSuccess';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <Route exact path="/editprofile" component={EditUserInfo} />
       <PrivateRoute exact path="/newListing" component={NewListing}/>
       <Route exact path="/browseMarket" component={BrowseMarket} />
+      <Route path="/newlistingsuccess" component={newListingSucess} />
       <Route path="/:type?/:id?" children={<Listing/>}/>
       <Route path="*" component={Error}/>
       </Switch>
