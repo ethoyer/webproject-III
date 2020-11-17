@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
 import "firebase/firestore";
+import { Form } from 'react-bootstrap';
 
 const RegisterUser = () => {
   let registerUser = false; //used to keep track of whether account is successfully registered or not
@@ -51,37 +52,45 @@ const RegisterUser = () => {
               window.location = '/registersuccess';
             }
           })
-      }).catch(function(error) {
+      }).catch(function (error) {
         document.getElementById('registerErrorMessage').innerHTML = error.message;
       })
   }
 
   return (
     <>
-    <div className="register">
-      <div className="title"><h1>Sign up</h1></div>
-      <form onSubmit={registerSubmit}>
-        <label>E-mail:</label>
-        <input type="text" placeholder="Email" name="email" onChange={changeStateOnInput} />
-        <label>Password:</label>
-        <input type="password" placeholder="Password" name="password" onChange={changeStateOnInput} />
-        <label>Name:</label>
-        <input type="text" placeholder="First Name" name="fname" onChange={changeStateOnInput} required />
-        <input type="text" placeholder="Last name" name="lname" onChange={changeStateOnInput} required />
-
-        <label>Date of birth:</label>
-        <input type="date" name="dob" onChange={changeStateOnInput} required />
-
-        <label>Current location:</label>
-        <input type="text" placeholder="Country" name="country" onChange={changeStateOnInput} required />
-        <input type="text" placeholder="City" name="city" onChange={changeStateOnInput} required />
-
-        <label>Phone no.:</label>
-        <input type="tel" placeholder="+47 888 88 888" name="phoneno" onChange={changeStateOnInput} required />
-
-        <button type="submit">Sign Up</button>
-      </form>
-      <p id="registerErrorMessage"></p>
+      <div className="register">
+        <div className="title"><h1>Sign up</h1></div>
+        <form onSubmit={registerSubmit}>
+          <Form.Group>
+            <Form.Label>E-mail:</Form.Label>
+            <Form.Control type="text" placeholder="Email" name="email" onChange={changeStateOnInput} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Password:</Form.Label>
+            <Form.Control type="password" placeholder="Password" name="password" onChange={changeStateOnInput} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Name:</Form.Label>
+            <Form.Control type="text" placeholder="First Name" name="fname" onChange={changeStateOnInput} required />
+            <Form.Control type="text" placeholder="Last name" name="lname" onChange={changeStateOnInput} required />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Date of birth:</Form.Label>
+            <Form.Control type="date" name="dob" onChange={changeStateOnInput} required />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Current location:</Form.Label>
+            <Form.Control type="text" placeholder="Country" name="country" onChange={changeStateOnInput} required />
+            <Form.Control type="text" placeholder="City" name="city" onChange={changeStateOnInput} required />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Phone no.:</Form.Label>
+            <Form.Control type="tel" placeholder="+47 888 88 888" name="phoneno" onChange={changeStateOnInput} required />
+          </Form.Group>
+          <button type="submit">Sign Up</button>
+        </form>
+        <p id="registerErrorMessage"></p>
       </div>
     </>
   )
