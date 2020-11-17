@@ -4,6 +4,7 @@ import 'firebase/auth';
 import "firebase/firestore";
 import { useUser } from 'reactfire';
 import ImageWidget from './ImageWidget';
+import { Form } from 'react-bootstrap';
 
 const BooksSuppliesForm = () => {
   const firebase = useFirebaseApp();
@@ -14,63 +15,88 @@ const BooksSuppliesForm = () => {
     e.preventDefault();
     firebase.firestore().collection("category").doc("books_and_supplies").collection("listings").doc().set({ //submits information to database
       seller: user.email,
-      //information to add goes here
+      title: document.getElementById("booksSuppliesTitle").value,
+      books: document.getElementById("listingbooks").value,
+      supplies: document.getElementById("listingsupplies").value,
+      condition: document.getElementById("itemConditionForm").value,
+      country: document.getElementById("booksSuppliesCountry").value,
+      city: document.getElementById("booksSuppliesCity").value,
+      currency: document.getElementById("currencyBooksSuppliesForm").value,
+      price: document.getElementById("booksSuppliesPrice").value,
+      shipping: document.getElementById("booksSuppliesShippingForm").value,
+      description: document.getElementById("booksSuppliesDescription").value,
       images: booksAndSuppliesImages
     })
       .then(result => {
-
+        window.location = '/newlistingsuccess';
       })
       .catch(error => {
+        console.log(error.message)
       })
   }
 
-
-
   return (
     <>
-      <label>Sub-category:</label>
-      <input type="radio" id="listingbooks" name="listingbooks" value="books" />
-      <label for="male">Books</label>
-      <input type="radio" id="listingsupplies" name="listingsupplies" value="supplies" />
-      <label for="female">Supplies</label>
-
-      <label htmlFor="booksSuppliesTitle">Title</label>
-      <input type="text" placeholder="title" name="booksSuppliesTitle" />
-
-      <label htmlFor="currencyForm">Currency</label>
-      <select id="currencyForm" name="currencyForm" >
-        <option value="currencyFormEUR" default>EUR</option>
-        <option value="currencyFormUSD">USD</option>
-        <option value="currencyFormNOK">NOK</option>
-      </select>
-      <label htmlFor="currencyPrice">Price</label>
-      <input type="numbers" placeholder="currencyPrice" name="currencyPrice" />
-
-      <label htmlFor="itemConditionForm">Condition</label>
-      <select id="itemConditionForm" name="itemConditionForm" >
-        <option value="conditionLikeNew" default>Like New</option>
-        <option value="conditionSlightWear">Slight wear and tear</option>
-        <option value="conditionNoticeableWear">Noticeable wear and tear</option>
-      </select>
+    <form onSubmit={submitBooksAndSuppliesForm}>
+      <Form.Group>
+        <Form.Label htmlFor="booksSuppliesTitle" className="formtitledescription">Title:</Form.Label>
+        <Form.Control type="text" name="booksSuppliesTitle" id="booksSuppliesTitle" required />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="booksSuppliesCategory">Sub-category:</Form.Label>
+        <Form.Check type="radio" id="listingbooks" name="booksSuppliesCategory" />
+        <Form.Label for="listingbooks">Books</Form.Label>
+        <Form.Check type="radio" id="listingsupplies" name="booksSuppliesCategory" />
+        <Form.Label for="listingsupplies">Supplies</Form.Label>
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="itemConditionForm">Condition:</Form.Label>
+        <select name="itemConditionForm" id="itemConditionForm" required>
+          <option value="conditionLikeNew" default>Like New</option>
+          <option value="conditionSlightWear">Slight wear and tear</option>
+          <option value="conditionNoticeableWear">Noticeable wear and tear</option>
+        </select>
+      </Form.Group>
 
       <p>Location</p>
-      <label htmlFor="booksSuppliesCountry">Country:</label>
-      <input type="text" placeholder="booksSuppliesCountry" name="booksSuppliesCountry" />
-      <label htmlFor="booksSupplieshousingCity">City:</label>
-      <input type="text" placeholder="booksSupplieshousingCity" name="booksSuppliesCity" />
+      <Form.Group>
+        <Form.Label htmlFor="booksSuppliesCountry">Country:</Form.Label>
+        <Form.Control type="text" name="booksSuppliesCountry" id="booksSuppliesCountry" required />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="booksSuppliesCity">City:</Form.Label>
+        <Form.Control type="text" name="booksSuppliesCity" id="booksSuppliesCity" required/>
+      </Form.Group>
+      
+      <p>Payment Information</p>
+      <Form.Group>
+        <Form.Label htmlFor="currencyBooksSuppliesForm">Currency</Form.Label>
+        <select id="currencyForm" name="currencyBooksSuppliesForm" id="currencyBooksSuppliesForm" required>
+          <option value="EUR" default>EUR</option>
+          <option value="USD">USD</option>
+          <option value="NOK">NOK</option>
+        </select>
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="booksSuppliesPrice">Price:</Form.Label>
+        <input type="number" name="booksSuppliesPrice" id="booksSuppliesPrice" required />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="booksSuppliesShippingForm">Shipping:</Form.Label>
+        <Form.Check type="checkbox" name="booksSuppliesShipping" id="booksSuppliesShippingForm" />
+        <Form.Label for="booksSuppliesShipping">Can be shipped</Form.Label>
+        <Form.Check type="checkbox" id="booksSuppliesPickup" name="booksSuppliesPickup" />
+        <Form.Label for="booksSuppliesPickup">Needs pick-up</Form.Label>
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="booksSuppliesDescription" className="formtitledescription">Description:</Form.Label>
+        <Form.Control as="textarea" rows={5} placeholder="Write description here..." name="booksSuppliesDescription" id="booksSuppliesDescription" />
+      </Form.Group>
 
-      <p>Shipping</p>
-      <input type="checkbox" id="booksSuppliesShipping" name="booksSuppliesShipping" value="Car" />
-      <label htmlFor="booksSuppliesShipping">Can be shipped</label>
-      <input type="checkbox" id="booksSuppliesPickup" name="booksSuppliesPickup" value="Boat" />
-      <label htmlFor="booksSuppliesPickup">Needs pick-up</label>
+        <ImageWidget imageArray={booksAndSuppliesImages} />
 
-      <label htmlFor="booksSuppliesDescription">Description:</label>
-      <input type="text" placeholder="Write description here..." name="booksSuppliesDescription" />
-
-      <ImageWidget imageArray={booksAndSuppliesImages} />
-
-      <button type="submit">Submit</button>
+        <button type="submit">Submit</button>
+    </form>
     </>
   )
 }
