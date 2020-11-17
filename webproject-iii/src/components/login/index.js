@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
 import './login.css';
+import { Form } from 'react-bootstrap';
 
 
 const Login = () => {
@@ -43,8 +44,8 @@ const Login = () => {
     <>
       <div id="registerbox"><h1 class="login">Log In</h1>
         <form class="form" onSubmit={userLogin}>
-          <input type="text" placeholder="Email" name="email" onChange={handleChange} /><br />
-          <input type="password" placeholder="Password" name="password" onChange={handleChange} /><br />
+          <Form.Control type="text" placeholder="Email" name="email" onChange={handleChange} /><br />
+          <Form.Control type="password" placeholder="Password" name="password" onChange={handleChange} /><br />
           <div><button type="submit">Log in</button></div>
         </form>
         {user.error && <h4>{user.error}</h4>}

@@ -17,12 +17,7 @@
   .login {
     text-align: center;
   }
-  
-  input[type="text"], input[type=password] {
-    width: 30%;
-    padding: 12px;  
-    margin: 8px 0;
-  }
+
   button[type="submit"]{
     color: white;
     background-color: rgba(137, 136, 134, 1); 
