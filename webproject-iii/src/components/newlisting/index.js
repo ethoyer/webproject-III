@@ -10,6 +10,7 @@ function NewListing() {
 return (
   <>
   <h1>Create new listing</h1>
+  <hr />
   <Form/>
   </>
 )

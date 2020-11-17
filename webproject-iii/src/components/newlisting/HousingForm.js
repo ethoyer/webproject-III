@@ -4,6 +4,7 @@ import 'firebase/auth';
 import "firebase/firestore";
 import { useUser } from 'reactfire';
 import ImageWidget from './ImageWidget';
+import { Form } from 'react-bootstrap';
 
 const HousingForm = () => {
   const firebase = useFirebaseApp();
@@ -41,54 +42,75 @@ const HousingForm = () => {
   return (
     <>
       <form onSubmit={submitHousingForm}>
-      <label htmlFor="housingTitle">Country:</label>
-        <input type="text" name="housingTitle" id="housingTitle" required />
+        <Form.Group>
+          <Form.Label htmlFor="housingTitle" className="formtitledescription">Title:</Form.Label>
+          <Form.Control type="text" name="housingTitle" id="housingTitle" required />
+        </Form.Group>
         <p>Location</p>
-        <label htmlFor="housingCountry">Country:</label>
-        <input type="text" name="housingCountry" id="housingCountry" required />
-        <label htmlFor="housingCity">City:</label>
-        <input type="text" name="housingCity" id="housingCity" required />
-        <label htmlFor="housingStreet">Street:</label>
-        <input type="text" name="housingStreet" id="housingStreet" required />
+        <Form.Group>
+          <Form.Label htmlFor="housingCountry">Country:</Form.Label>
+          <Form.Control type="text" name="housingCountry" id="housingCountry" required />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="housingCity">City:</Form.Label>
+          <Form.Control type="text" name="housingCity" id="housingCity" required />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="housingStreet">Street:</Form.Label>
+          <Form.Control type="text" name="housingStreet" id="housingStreet" required />
+        </Form.Group>
 
         <p>Housing Information</p>
-        <label htmlFor="housingType">Housing type:</label>
-        <select id="housingType" name="housingType" id="housingType" required>
-          <option value="sharedHousing">Shared housing</option>
-          <option value="studio apartment">studio apartment</option>
-        </select>
-
-        <label htmlFor="housingSize">Size(m<sup>2</sup>):</label>
-        <input type="number" name="housingSize" id="housingSize" required />
-
-        <label htmlFor="housingFloor">Floor</label>
-        <input type="text" name="housingFloor" id="housingFloor" required />
+        <Form.Group>
+          <Form.Label htmlFor="housingType">Housing type:</Form.Label>
+          <select id="housingType" name="housingType" id="housingType" required>
+            <option value="sharedHousing">Shared housing</option>
+            <option value="studio apartment">studio apartment</option>
+          </select>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="housingSize">Size(m<sup>2</sup>):</Form.Label>
+          <Form.Control type="number" name="housingSize" id="housingSize" required />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="housingFloor">Floor:</Form.Label>
+          <Form.Control type="number" name="housingFloor" id="housingFloor" required />
+        </Form.Group>
 
         <p>Rent Information</p>
-        <label htmlFor="housingRentingPeriod">Renting period</label>
-        <select name="housingRentingPeriod" id="housingRentingPeriod" required>
-          <option value="shortTermRent" default>Short Term</option>
-          <option value="longTermRent">Long Term</option>
-        </select>
+        <Form.Group>
+          <Form.Label htmlFor="housingRentingPeriod">Renting period:</Form.Label>
+          <select name="housingRentingPeriod" id="housingRentingPeriod" required>
+            <option value="shortTermRent" default>Short Term</option>
+            <option value="longTermRent">Long Term</option>
+          </select>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="housingAvailableFromDate">Available from:</Form.Label>
+          <Form.Control type="date" name="housingAvailableFromDate" id="housingAvailableFromDate" required />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="currencyHousingForm">Currency:</Form.Label>
+          <select id="currencyForm" name="currencyHousingForm" id="currencyHousingForm" required>
+            <option value="EUR">EUR</option>
+            <option value="USD">USD</option>
+            <option value="NOK">NOK</option>
+          </select>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="hosingRentPrice" >Monthly rent:</Form.Label>
+          <Form.Control type="number" name="hosingRentPrice" id="housingRentPrice" required />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="housingDepositPrice" >Deposit:</Form.Label>
+          <Form.Control type="number" name="housingDepositPrice" id="housingDepositPrice" required />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="housingDescription" className="formtitledescription">Description:</Form.Label>
+          <Form.Control as="textarea" rows={5} placeholder="Write description here..." name="housingDescription" id="housingDescription" />
+        </Form.Group>
 
-        <label htmlFor="housingAvailableFromDate">Available from:</label>
-        <input type="date" name="housingAvailableFromDate" id="housingAvailableFromDate" required />
-
-        <label htmlFor="currencyHousingForm">Currency</label>
-        <select id="currencyForm" name="currencyHousingForm" id="currencyHousingForm" required>
-          <option value="EUR">EUR</option>
-          <option value="USD">USD</option>
-          <option value="NOK">NOK</option>
-        </select>
-        <label htmlFor="hosingRentPrice" >Monthly rent:</label>
-        <input type="number" name="hosingRentPrice" id="housingRentPrice" required />
-        <label htmlFor="housingDepositPrice" >Deposit</label>
-        <input type="number" name="housingDepositPrice" id="housingDepositPrice" required />
-
-        <label htmlFor="housingDescription">Description:</label>
-      <input type="text" placeholder="Write description here..." name="housingDescription" id="housingDescription" />
-
-        {/* <label>Included in rent:</label>
+        {/* <Form.Label>Included in rent:</Form.Label>
     <checkbox name="housingIncludes" id="housingIncludes" required >
       <option value="hosuingIncludesCable">TV-Cable</option>
       <option value="hosuingIncludesInternet">Internet</option>

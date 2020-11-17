@@ -9,18 +9,55 @@ main {
   flex-direction: column;
   margin: 10px;
   padding: 20px;
-  text-align: center;
 }
 
-input[type="text"], input[type=password] {
-  width: 15%;
-  padding: 12px 20px;
-  margin: 8px 0;
+hr{
+  width: 60vw;
+  border-top: 2px solid black;
 }
+
+form{
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+input[type=text], input[type=password] {
+  width: 60%;
+}
+
+label[for=housingDescription]{
+  text-align: start;
+  display: block;
+  text-decoration: underline;
+}
+
+.formtitledescription{
+  font-size: 1.2em;
+}
+
+input[type=number]{
+  width: 20%;
+}
+
+input[type=date]{
+  width: 30%;
+}
+
+select, input[type=number], input[type=date], input[type=text], input[type=password]{
+  margin: 8px 15px;
+  display: inline-block;
+}
+
+form p{
+  margin: 3% 0 2% 0;
+  text-decoration: underline;
+  font-size: 1.2em;
+}
+
 button[type="submit"]{
   color: #61dafb;
   background-color: rgba(137, 136, 134, 1); 
-  margin: 8px 0;
+  margin: 8px;
   border: none;
   width: 10%;
   padding: 14px 20px;
