@@ -3,7 +3,9 @@ main {
   text-align: center;
 }
 
-.mentor, .courses, .market {
+.mentor,
+.courses,
+.market {
   text-decoration: none;
   background-color: #f1f1f1;
   flex-direction: column;
@@ -11,52 +13,98 @@ main {
   padding: 20px;
 }
 
-hr{
+/* home page */
+
+#homepage {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+
+#homepage>h1{
+  align-self: center;
+  text-shadow: 2px 2px 2px rgb(209, 209, 209);
+}
+
+#homepage>div{
+  height: 100px;
+}
+
+#homepage>div>div{
+  display: inline-block;
+  margin: 1% 5%;
+  height: 100px;
+  width: 200px;
+}
+
+#homepage>div>div>a {
+  display: inline-block;
+  color: black;
+  line-height: 100px;
+  height: 100%;
+  width: 100%;
+  background-color: #DADCDF;
+}
+
+#homepage>div>div>a:hover{
+  background-color: #bec0c4;
+}
+
+/* new listing form */
+
+hr {
   width: 60vw;
   border-top: 2px solid black;
 }
 
-form{
+form {
   max-width: 700px;
   margin: 0 auto;
 }
 
-input[type=text], input[type=password] {
+input[type=text],
+input[type=password] {
   width: 60%;
 }
 
-label[for=housingDescription]{
+label[for=housingDescription] {
   text-align: start;
   display: block;
   text-decoration: underline;
 }
 
-.formtitledescription{
+.formtitledescription {
   font-size: 1.2em;
 }
 
-input[type=number]{
+input[type=number] {
   width: 20%;
 }
 
-input[type=date]{
+input[type=date] {
   width: 30%;
 }
 
-select, input[type=number], input[type=date], input[type=text], input[type=password]{
+select,
+input[type=number],
+input[type=date],
+input[type=text],
+input[type=password] {
   margin: 8px 15px;
   display: inline-block;
 }
 
-form p{
+form p {
   margin: 3% 0 2% 0;
   text-decoration: underline;
   font-size: 1.2em;
 }
 
-button[type="submit"]{
+button[type="submit"] {
   color: #61dafb;
-  background-color: rgba(137, 136, 134, 1); 
+  background-color: rgba(137, 136, 134, 1);
   margin: 8px;
   border: none;
   width: 10%;
@@ -64,26 +112,26 @@ button[type="submit"]{
 }
 
 /*---- Register Page ----*/
-.register{
+.register {
   background: #f1f1f1;
   margin: 20px auto;
   border: 1px solid #ccc;
-  
-}
-.title {
-  text-align: center;
+
 }
 
 /* Categories Browsemarket */
 
-#housing, #books_and_supplies, #furniture, #services {
+#housing,
+#books_and_supplies,
+#furniture,
+#services {
   width: 27rem;
   padding: 60px;
   margin: 70px;
   justify-content: center;
 }
 
-/*---- Footer ----*/ 
+/*---- Footer ----*/
 footer {
   color: white;
   text-align: center;
@@ -92,23 +140,26 @@ footer {
 
 /*--cards--*/
 
-.card-deck{
+.card-deck {
   width: 60rem;
-  
+
 }
-.card{
+
+.card {
   border: #282c34;
   width: 15rem;
 }
+
 .card a {
-text-decoration: none;
-color:black;
+  text-decoration: none;
+  color: black;
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

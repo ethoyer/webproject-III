@@ -3,10 +3,12 @@ import React from 'react';
 class CategoryButton extends React.Component {
     handleClick(e) {
     }
-        render() {
+    render() {
 
         return (
-            <a href={this.props.url} onClick={this.handleClick}> {this.props.title} </a>
+            <div>
+                <a href={this.props.url} onClick={this.handleClick}> {this.props.title} </a>
+            </div>
         );
     }
 }
