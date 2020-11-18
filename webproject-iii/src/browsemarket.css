@@ -37,3 +37,20 @@
   grid-gap: 1rem 5rem;
   width: 100%;
 }
+
+.listing  {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  margin: 1%;
+  margin-top: 2%;
+}
+#backButton{
+ float: left;
+ margin-left: 5%;
+}
+.listing p, h1 {
+  text-align: left;
+}
+.listing p::first-letter, .listing h1::first-letter {
+  text-transform: capitalize;
+}
