@@ -48,7 +48,7 @@
  float: left;
  margin-left: 5%;
 }
-.listing p, h1 {
+.listing p, .listing h1 {
   text-align: left;
 }
 .listing p::first-letter, .listing h1::first-letter {
