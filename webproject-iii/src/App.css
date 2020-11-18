@@ -111,7 +111,33 @@ button[type="submit"] {
   padding: 14px 20px;
 }
 
+/* edit profile */
+.editUser {
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+}
 
+.editUser label {
+  width: 7em;
+  margin: 8px;
+}
+
+.editUser input {
+  display: inline-block;
+  width: 50%;
+}
+
+.editUser img {
+  height: 300px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.editUser button[type=submit] {
+  margin: 8px 20px;
+  width: 20%;
+  padding: 14px 10px;
+}  
 
 /*---- Register Page ----*/
 .register {

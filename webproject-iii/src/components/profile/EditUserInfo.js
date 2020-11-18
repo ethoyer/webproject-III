@@ -4,6 +4,8 @@ import 'firebase/auth';
 import "firebase/firestore";
 import { useUser } from 'reactfire';
 import ProfileImageWidget from './ProfileImageWidget';
+import { Col, Row, Form } from 'react-bootstrap';
+import Image from 'react-bootstrap/Image';
 
 
 const EditUserInfo = () => {
@@ -56,37 +58,60 @@ const EditUserInfo = () => {
 
   return (
     <>
-      <h1>Edit Profile</h1>
+      <div className="editUser">
+      <div className="title"><h1>Edit Profile</h1>
+      </div>
+      <hr />
       <form onSubmit={submitUserEdit}>
-        <h2>Edit User Information</h2>
-        <label>Name:</label>
-        <input id="userinputfname" type="text" placeholder="First Name" name="fname" />
-        <input id="userinputlname" type="text" placeholder="Last name" name="lname" />
-        <label>Date of birth:</label>
-        <input id="userinputdob" type="date" name="dob" />
-        <label>Current location:</label>
-        <input id="userinputcountry" type="text" placeholder="Country" name="country" />
-        <input id="userinputcity" type="text" placeholder="City" name="city" />
-        <label>Phone no.:</label>
-        <input id="userinputphoneno" type="tel" placeholder="+47 888 88 888" name="phoneno" />
+        <Form.Group>
+          <Form.Label>First Name:</Form.Label>
+          <Form.Control id="userinputfname" type="text" placeholder="First Name" name="fname" />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Last Name:</Form.Label>
+          <Form.Control id="userinputlname" type="text" placeholder="Last name" name="lname" />
+        </Form.Group>    
+        <Form.Group>
+          <Form.Label>Date of birth:</Form.Label>
+          <Form.Control id="userinputdob" type="date" name="dob" />    
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Phone no.:</Form.Label>
+          <Form.Control id="userinputphoneno" type="tel" placeholder="+47 888 88 888" name="phoneno" />
+        </Form.Group>
+        <p>Location</p>
+        <Form.Group>
+          <Form.Label>Country:</Form.Label>
+          <Form.Control id="userinputcountry" type="text" placeholder="Country" name="country" />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>City:</Form.Label>
+          <Form.Control id="userinputcity" type="text" placeholder="City" name="city" />
+        </Form.Group>
         <p>Change profile image:</p>
-        <img id="currentUserProfileImage" alt="profile image" src=""></img>
-        <ProfileImageWidget newProfileImage={newProfileImage} />
-        <button type="submit">Save new user information</button>
+        <Form.Group>
+          <Image id="currentUserProfileImage" alt="profile image" src="" rounded />
+        </Form.Group>
+        <Form.Group>         
+          <ProfileImageWidget newProfileImage={newProfileImage}/>
+          <button type="submit">Update Profile</button>
+        </Form.Group>
       </form>
-      <p id="userinfoupdate"></p>
+          
+          <p id="userinfoupdate"></p>
 
-      <h2>Edit Account Information</h2>
-      <form onSubmit={submitPasswordEdit}>
-      <label>E-mail:</label>
-        <input id="userinputemail" type="tel" placeholder="email@hotmail.com" name="email" disabled="disbaled" />
-        <button type="submit">Send password reset e-mail</button>
-      </form>
+          <h2>Edit Account Information</h2>
+          <form onSubmit={submitPasswordEdit}>
+        <Form.Group>
+            <Form.Label>E-mail:</Form.Label>
+              <Form.Control id="userinputemail" type="email" placeholder="email@hotmail.com" name="email" disabled="disabled" />
+            <button type="submit">Reset password</button>
+        </Form.Group>
+          </form>
       <p id="accountinfoupdate"></p>
-
-
-    </>
+      </div>  
+     </>
   )
-};
+}
 
 export default EditUserInfo;
