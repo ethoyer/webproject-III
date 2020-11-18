@@ -53,7 +53,7 @@ const FurnitureForm = () => {
       <p>Furniture Information</p>
       <Form.Group>
         <Form.Label htmlFor="furnitureCategory">Sub-category:</Form.Label>
-        <select id="furnitureCategory" name="furnitureCategory" required>
+        <Form.Control as="select" id="furnitureCategory" name="furnitureCategory" required>
           <option value="chairTables">Chairs &amp; Tables</option>
           <option value="wardrobes">Wardrobes</option>
           <option value="cabinetClosets">Cabinets &amp; Closets</option>
@@ -66,24 +66,24 @@ const FurnitureForm = () => {
           <option value="carpets">Carpets</option>
           <option value="decor">Home décor</option>
           <option value="other">Other Home Furniture</option>
-        </select>
+        </Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="furnitureCondition">Condition:</Form.Label>
-        <select id="furnitureCondition" name="furnitureCondition" required >
+        <Form.Control as="select" id="furnitureCondition" name="furnitureCondition" required >
           <option value="conditionLikeNew" default>Like New</option>
           <option value="conditionSlightWear">Slight wear and tear</option>
           <option value="conditionNoticeableWear">Noticeable wear and tear</option>
-        </select>
+        </Form.Control>
       </Form.Group>
       <p>Payment &amp; Shipping options</p>
       <Form.Group>
         <Form.Label htmlFor="currencyFurnitureForm">Currency:</Form.Label>
-        <select id="currencyForm" name="currencyFurnitureForm" id="currencyFurnitureForm" required >
+        <Form.Control as="select" id="currencyForm" name="currencyFurnitureForm" id="currencyFurnitureForm" required>
           <option value="EUR">EUR</option> 
           <option value="USD">USD</option>
           <option value="NOK">NOK</option>
-        </select>
+        </Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="furniturePrice">Price:</Form.Label>
@@ -91,10 +91,8 @@ const FurnitureForm = () => {
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="furnitureShippingForm">Shipping:</Form.Label>
-        <Form.Check type="checkbox" id="furnitureShippingForm" name="furnitureShipping" /> 
-        <Form.Label for="furnitureShipping">Can be shipped</Form.Label>
-        <Form.Check type="checkbox" id="furniturePickup" name="furniturePickup" />
-        <Form.Label for="furniturePickup">Needs pick-up</Form.Label>
+        <Form.Check type="radio" id="furnitureShippingForm" label="Can be shipped" name="furnitureShipping" /> 
+        <Form.Check type="radio" id="furniturePickup" label="Needs pick-up" name="furniturePickup" />
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="furnitureDescription" className="formtitledescription">Description:</Form.Label>

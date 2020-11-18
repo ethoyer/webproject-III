@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as firebase from 'firebase';
 import {useParams, Link} from 'react-router-dom'
-import { Row, Container, Image, Col } from 'react-bootstrap';
+import { Container, Image, Col } from 'react-bootstrap';
 import {BsArrowLeft} from "react-icons/bs";
 
 
@@ -23,7 +23,7 @@ const Listing = props => {
     function housing () {
     if (type === 'housing') {
       return(
-            <Col>
+            <>
             <p>{item.street}</p>
             <p>Size {item.size}</p>
             <p>Available {item.availableFrom}</p>
@@ -32,43 +32,41 @@ const Listing = props => {
             <p>Floors {item.floor}</p>
             <p>{item.housingType}</p>
             <p>{item.monthlyRent}</p>
-  
-            
-            </Col>
+            </>
           )
         }
     }
     function furniture () {
       if (type === 'furniture') {
         return(
-              <Col>
+              <>
               <p>Category {item.furnitureCategory}</p>
               <p>Condtion {item.condition}</p>
               <p>Shipping {item.shipping}</p>
-              </Col>
+              </>
             )
           }
       }
       function service () {
         if(type === 'services'){
           return(
-            <Col>
+            <>
             <p>Sevice Type: {item.serviceType}</p>
             <p>Conditon {item.condition}</p>
             <p> Shipping {item.shipping}</p>
-            </Col>
+            </>
           )
         }
       }
       function books_supplies () {
-        if (type === 'furniture') {
+        if (type === 'books_and_supplies') {
           return(
-                <Col>
+               <>
                 <p>{item.books}</p>
                 <p>{item.supplies}</p>
                 <p>Condition {item.condition}</p>
                 <p>Shipping {item.shipping}</p>
-                </Col>
+                </>
               )
             }
         }

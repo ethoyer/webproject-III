@@ -49,13 +49,13 @@ const ServicesForm = () => {
       <p>Service Information</p>
       <Form.Group>
         <Form.Label htmlFor="serviceType">Service Type:</Form.Label>
-        <select name="serviceType" id="serviceType" required>
+        <Form.Control as="select" name="serviceType" id="serviceType" required>
           <option value="tutor">Tutor</option>
           <option value="Campus Guide">Campus Guide</option>
           <option value="AplicationSupport">Application Support</option>
           <option value="Activities">Activities</option>
           <option value="Travels">Travel Guide</option>
-        </select>
+        </Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="serviceDescription" className="formtitledescription">Description:</Form.Label>

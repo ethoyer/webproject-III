@@ -1,5 +1,6 @@
 import React from 'react';
 import { FirebaseAppProvider, useFirebaseApp } from 'reactfire';
+import {Form} from 'react-bootstrap';
 import 'firebase/auth';
 import "firebase/firestore";
 import ReactDOM from 'react-dom';
@@ -39,14 +40,14 @@ const NewListingForm = () => {
         {/* needs to seperate forms. one for category choice and then one that is the actual form being turned in */}
         <form id="newListingForm">
           {/* onSubmit={submitForm} */}
-          <label>Category</label>
-          <select id="listingCategory" name="listingCategory" onChange={changeForm}>
+          <label>Category </label>
+          <Form.Control as="select" id="listingCategory" name="listingCategory" onChange={changeForm}>
             <option value="choose" default>Choose Option</option>
             <option value="housing">Housing</option>
             <option value="books_and_supplies">Books and supplies</option>
             <option value="furniture">Furniture</option>
             <option value="services">Services</option>
-          </select>
+          </Form.Control>
         </form>
         <div id="completeListingForm">
           {/* the remaining form displayed here depends on category choice */}

@@ -44,18 +44,16 @@ const BooksSuppliesForm = () => {
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="booksSuppliesCategory">Sub-category:</Form.Label>
-        <Form.Check type="radio" id="listingbooks" name="booksSuppliesCategory" />
-        <Form.Label for="listingbooks">Books</Form.Label>
-        <Form.Check type="radio" id="listingsupplies" name="booksSuppliesCategory" />
-        <Form.Label for="listingsupplies">Supplies</Form.Label>
+        <Form.Check type="radio" id="listingbooks" label="Books" name="booksSuppliesCategory" />
+        <Form.Check type="radio" id="listingsupplies" label="Supplies" name="booksSuppliesCategory" />
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="itemConditionForm">Condition:</Form.Label>
-        <select name="itemConditionForm" id="itemConditionForm" required>
+        <Form.Control as="select" name="itemConditionForm" id="itemConditionForm" required>
           <option value="conditionLikeNew" default>Like New</option>
           <option value="conditionSlightWear">Slight wear and tear</option>
           <option value="conditionNoticeableWear">Noticeable wear and tear</option>
-        </select>
+        </Form.Control>
       </Form.Group>
 
       <p>Location</p>
@@ -71,11 +69,11 @@ const BooksSuppliesForm = () => {
       <p>Payment Information</p>
       <Form.Group>
         <Form.Label htmlFor="currencyBooksSuppliesForm">Currency</Form.Label>
-        <select id="currencyForm" name="currencyBooksSuppliesForm" id="currencyBooksSuppliesForm" required>
+        <Form.Control as="select" id="currencyForm" name="currencyBooksSuppliesForm" id="currencyBooksSuppliesForm" required>
           <option value="EUR" default>EUR</option>
           <option value="USD">USD</option>
           <option value="NOK">NOK</option>
-        </select>
+        </Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="booksSuppliesPrice">Price:</Form.Label>
@@ -83,10 +81,8 @@ const BooksSuppliesForm = () => {
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="booksSuppliesShippingForm">Shipping:</Form.Label>
-        <Form.Check type="checkbox" name="booksSuppliesShipping" id="booksSuppliesShippingForm" />
-        <Form.Label for="booksSuppliesShipping">Can be shipped</Form.Label>
-        <Form.Check type="checkbox" id="booksSuppliesPickup" name="booksSuppliesPickup" />
-        <Form.Label for="booksSuppliesPickup">Needs pick-up</Form.Label>
+        <Form.Check type="radio" label="Can be shipped" name="booksSuppliesShipping" id="booksSuppliesShippingForm" />
+        <Form.Check type="radio" label="Needs pick-up" id="booksSuppliesPickup" name="booksSuppliesPickup" />
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="booksSuppliesDescription" className="formtitledescription">Description:</Form.Label>

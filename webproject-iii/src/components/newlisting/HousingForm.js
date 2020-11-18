@@ -4,7 +4,7 @@ import 'firebase/auth';
 import "firebase/firestore";
 import { useUser } from 'reactfire';
 import ImageWidget from './ImageWidget';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 const HousingForm = () => {
   const firebase = useFirebaseApp();
@@ -63,10 +63,10 @@ const HousingForm = () => {
         <p>Housing Information</p>
         <Form.Group>
           <Form.Label htmlFor="housingType">Housing type:</Form.Label>
-          <select id="housingType" name="housingType" id="housingType" required>
+          <Form.Control as="select" id="housingType" name="housingType" id="housingType" required>
             <option value="sharedHousing">Shared housing</option>
             <option value="studio apartment">studio apartment</option>
-          </select>
+          </Form.Control>
         </Form.Group>
         <Form.Group>
           <Form.Label htmlFor="housingSize">Size(m<sup>2</sup>):</Form.Label>
@@ -80,10 +80,10 @@ const HousingForm = () => {
         <p>Rent Information</p>
         <Form.Group>
           <Form.Label htmlFor="housingRentingPeriod">Renting period:</Form.Label>
-          <select name="housingRentingPeriod" id="housingRentingPeriod" required>
+          <Form.Control as="select" name="housingRentingPeriod" id="housingRentingPeriod" required>
             <option value="shortTermRent" default>Short Term</option>
             <option value="longTermRent">Long Term</option>
-          </select>
+          </Form.Control>
         </Form.Group>
         <Form.Group>
           <Form.Label htmlFor="housingAvailableFromDate">Available from:</Form.Label>
@@ -91,11 +91,11 @@ const HousingForm = () => {
         </Form.Group>
         <Form.Group>
           <Form.Label htmlFor="currencyHousingForm">Currency:</Form.Label>
-          <select id="currencyForm" name="currencyHousingForm" id="currencyHousingForm" required>
+          <Form.Control as="select" id="currencyForm" name="currencyHousingForm" id="currencyHousingForm" required>
             <option value="EUR">EUR</option>
             <option value="USD">USD</option>
             <option value="NOK">NOK</option>
-          </select>
+          </Form.Control>
         </Form.Group>
         <Form.Group>
           <Form.Label htmlFor="hosingRentPrice" >Monthly rent:</Form.Label>
@@ -122,7 +122,7 @@ const HousingForm = () => {
 
         <ImageWidget imageArray={housingImages} />
 
-        <button type="submit">Submit</button>
+        <Button class="btn btn-primary" type="submit">Submit</Button>
       </form>
     </>
   )
