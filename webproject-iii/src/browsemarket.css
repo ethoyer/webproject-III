@@ -1,7 +1,6 @@
 #browsingmarket {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  margin: 1%;
 }
 
 #browsingmarket h1{
@@ -41,8 +40,8 @@
 .listing  {
   display: grid;
   grid-template-columns: 2fr 2fr;
-  margin: 1%;
-  margin-top: 2%;
+  padding: 1%;
+  padding-top: 2%;
 }
 #backButton{
  float: left;

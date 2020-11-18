@@ -4,7 +4,7 @@ import 'firebase/auth';
 import "firebase/firestore";
 import { useUser } from 'reactfire';
 import ImageWidget from './ImageWidget';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 const BooksSuppliesForm = () => {
   const firebase = useFirebaseApp();
@@ -37,7 +37,7 @@ const BooksSuppliesForm = () => {
 
   return (
     <>
-    <form onSubmit={submitBooksAndSuppliesForm}>
+    <form className="form" onSubmit={submitBooksAndSuppliesForm}>
       <Form.Group>
         <Form.Label htmlFor="booksSuppliesTitle" className="formtitledescription">Title:</Form.Label>
         <Form.Control type="text" name="booksSuppliesTitle" id="booksSuppliesTitle" required />
@@ -91,7 +91,7 @@ const BooksSuppliesForm = () => {
 
         <ImageWidget imageArray={booksAndSuppliesImages} />
 
-        <button type="submit">Submit</button>
+        <Button type="submit">Submit</Button>
     </form>
     </>
   )

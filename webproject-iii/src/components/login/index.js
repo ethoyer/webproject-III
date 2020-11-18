@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
-import './login.css';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 
 const Login = () => {
@@ -42,11 +41,11 @@ const Login = () => {
 
   return (
     <>
-      <div id="registerbox"><h1 class="login">Log In</h1>
-        <form class="form" onSubmit={userLogin}>
+      <div className="formBox"><h1>Log In</h1>
+        <form className="form" onSubmit={userLogin}>
           <Form.Control type="text" placeholder="Email" name="email" onChange={handleChange} /><br />
           <Form.Control type="password" placeholder="Password" name="password" onChange={handleChange} /><br />
-          <div><button type="submit">Log in</button></div>
+          <div><Button type="submit">Log in</Button></div>
         </form>
         {user.error && <h4>{user.error}</h4>}
         <div class="a"> Not registered? <a href="/register">Create an Account!</a></div>

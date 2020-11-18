@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
 import "firebase/firestore";
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 const RegisterUser = () => {
   let registerUser = false; //used to keep track of whether account is successfully registered or not
@@ -59,9 +59,9 @@ const RegisterUser = () => {
 
   return (
     <>
-      <div className="register">
-        <div className="title"><h1>Sign up</h1></div>
-        <form onSubmit={registerSubmit}>
+      <div className="formBox">
+        <div><h1>Sign up</h1></div>
+        <form className="form" onSubmit={registerSubmit}>
           <Form.Group>
             <Form.Label>E-mail:</Form.Label>
             <Form.Control type="text" placeholder="Email" name="email" onChange={changeStateOnInput} />
@@ -85,10 +85,10 @@ const RegisterUser = () => {
             <Form.Control type="text" placeholder="City" name="city" onChange={changeStateOnInput} required />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Phone no.:</Form.Label>
+            <Form.Label>Phone no:</Form.Label>
             <Form.Control type="tel" placeholder="+47 888 88 888" name="phoneno" onChange={changeStateOnInput} required />
           </Form.Group>
-          <button type="submit">Sign Up</button>
+          <Button type="submit">Sign Up</Button>
         </form>
         <p id="registerErrorMessage"></p>
       </div>

@@ -4,7 +4,7 @@ function newListingSuccess() {
   return (
     <main>
       <h2>Your listing has been posted!</h2>
-      <a href="/browsemarket">Return marketplace</a>
+      <a href="/browsemarket">Return to marketplace</a>
     </main>
   )
 }

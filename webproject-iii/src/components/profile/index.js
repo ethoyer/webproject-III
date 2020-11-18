@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { useFirebaseApp } from 'reactfire';
+import React from 'react';
 import 'firebase/auth';
 import "firebase/firestore";
-import { useUser } from 'reactfire';
 import UserInformation from './UserInfo';
 
 function UserProfile() {

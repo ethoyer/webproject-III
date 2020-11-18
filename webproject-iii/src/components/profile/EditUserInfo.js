@@ -4,7 +4,7 @@ import 'firebase/auth';
 import "firebase/firestore";
 import { useUser } from 'reactfire';
 import ProfileImageWidget from './ProfileImageWidget';
-import { Col, Row, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
 
 
@@ -57,12 +57,14 @@ const EditUserInfo = () => {
   });
 
   return (
-    <>
-      <div className="editUser">
+    <> 
+      
+      <div id="editUser">
       <div className="title"><h1>Edit Profile</h1>
-      </div>
       <hr />
-      <form onSubmit={submitUserEdit}>
+      </div>
+  
+      <form className="form" onSubmit={submitUserEdit}>
         <Form.Group>
           <Form.Label>First Name:</Form.Label>
           <Form.Control id="userinputfname" type="text" placeholder="First Name" name="fname" />
@@ -94,7 +96,7 @@ const EditUserInfo = () => {
         </Form.Group>
         <Form.Group>         
           <ProfileImageWidget newProfileImage={newProfileImage}/>
-          <button type="submit">Update Profile</button>
+          <Button type="submit">Save</Button>
         </Form.Group>
       </form>
           
@@ -105,7 +107,7 @@ const EditUserInfo = () => {
         <Form.Group>
             <Form.Label>E-mail:</Form.Label>
               <Form.Control id="userinputemail" type="email" placeholder="email@hotmail.com" name="email" disabled="disabled" />
-            <button type="submit">Reset password</button>
+            <Button type="submit">Reset password</Button>
         </Form.Group>
           </form>
       <p id="accountinfoupdate"></p>

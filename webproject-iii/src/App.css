@@ -1,9 +1,16 @@
 main {
   min-height: 100vh;
-  text-align: center;
+  text-align: center;  
+  background-image: url(./assets/double-bubble-outline.png),linear-gradient(#ffffff, #ffffff00);
+  background-repeat: repeat;
+  background-size: 25%;
+  padding: 2%;
+}
+h1, p {
+  font-family: 'Arial Narrow', Arial, sans-serif
 }
 
-.mentor,
+/* .mentor,
 .courses,
 .market {
   text-decoration: none;
@@ -11,7 +18,7 @@ main {
   flex-direction: column;
   margin: 10px;
   padding: 20px;
-}
+} */
 
 /* home page */
 
@@ -25,7 +32,6 @@ main {
 
 #homepage>h1{
   align-self: center;
-  text-shadow: 2px 2px 2px rgb(209, 209, 209);
 }
 
 #homepage>div{
@@ -102,50 +108,22 @@ form p {
   font-size: 1.2em;
 }
 
-button[type="submit"] {
-  color: #61dafb;
-  background-color: rgba(137, 136, 134, 1);
-  margin: 8px;
-  border: none;
-  width: 10%;
-  padding: 14px 20px;
-}
-
 /* edit profile */
-.editUser {
-  background: #f1f1f1;
-  border: 1px solid #ccc;
-}
-
-.editUser label {
+#editUser label {
   width: 7em;
   margin: 8px;
 }
 
-.editUser input {
+#editUser input {
   display: inline-block;
   width: 50%;
 }
 
-.editUser img {
-  height: 300px;
-  width: 400px;
+#editUser img {
   margin: 0 auto;
+  max-width: 50%;
 }
 
-.editUser button[type=submit] {
-  margin: 8px 20px;
-  width: 20%;
-  padding: 14px 10px;
-}  
-
-/*---- Register Page ----*/
-.register {
-  background: #f1f1f1;
-  margin: 20px auto;
-  border: 1px solid #ccc;
-
-}
 
 /* Categories Browsemarket */
 
@@ -188,6 +166,38 @@ footer p{
   text-decoration: none;
   color: black;
 }
+/*---- Login page ----*/
+
+ .formBox{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+}
+ .form, .a, .editUser{
+  background: #f1f1f1;
+  text-decoration: none;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.btn[type="submit"], .cloudinary-button{
+  color: white;
+  background-color: rgba(137, 136, 134, 1); 
+  border: none;
+  margin: 8px 20px;
+  width: 20%;
+  padding: 14px 10px;
+  font-size: medium;
+  vertical-align: middle;
+}
+.btn[type="submit"]:hover, .cloudinary-button:hover{
+  background-color: grey;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+}
+
 
 @keyframes App-logo-spin {
   from {

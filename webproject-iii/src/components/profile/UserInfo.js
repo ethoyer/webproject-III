@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
 import "firebase/firestore";
 import { useUser } from 'reactfire';
+import {Button} from 'react-bootstrap';
 
 function UserInformation() {
   const user = useUser();
@@ -26,13 +27,16 @@ function UserInformation() {
 
   return (
     <>
-      <div id="userProfile">
+    <hr />
+    <div className="formBox" id="editUser">
+      <div className="form">        
         <p id="userinformationerror"></p>
-        <a href="/editprofile">Edit Profile</a>
         <img id="userProfileImage" alt="profile image" src=""></img>
         <p>Name: <span id="userfullname"></span></p>
         <p>Birthdate: <span id="userage"></span></p>
-        <p id="userlocation">Location: <span id="userlocationcountry"></span>, <span id="userlocationcity"></span></p>
+        <p id="userlocation">Location: <span id="userlocationcountry"></span>, <span id="userlocationcity"></span></p>      
+        <Button href="/editprofile">Edit Profile</Button>
+        </div>
       </div>
     </>
   )

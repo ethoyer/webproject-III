@@ -4,7 +4,7 @@ import 'firebase/auth';
 import "firebase/firestore";
 import { useUser } from 'reactfire';
 import ImageWidget from './ImageWidget';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 const FurnitureForm = () => {
   const firebase = useFirebaseApp();
@@ -36,7 +36,7 @@ const FurnitureForm = () => {
 
   return (
   <>
-    <form onSubmit={submitFurnitureForm}>
+    <form className="form" onSubmit={submitFurnitureForm}>
       <Form.Group>
         <Form.Label htmlFor="furnitureTitle" className="formtitledescription">Title:</Form.Label>
         <Form.Control type="text" id="furnitureTitle" name="furnitureTitle" required />
@@ -44,9 +44,9 @@ const FurnitureForm = () => {
 
       <p>Location</p>
       <Form.Group>
-        <Form.Label htmlFor="furnitureCountry">Country:</Form.Label>
+        <Form.Label htmlFor="furnitureCountry">Country: </Form.Label>
         <Form.Control type="text" id="furnitureCountry" name="furnitureCountry" required />
-        <Form.Label htmlFor="furnitureCity">City:</Form.Label>
+        <Form.Label htmlFor="furnitureCity">City: </Form.Label>
         <Form.Control type="text" id="furnitureCity" name="furnitureCity" required />
       </Form.Group>
 
@@ -101,7 +101,7 @@ const FurnitureForm = () => {
 
         <ImageWidget imageArray={furnitureImages} />
 
-        <button type="submit">Submit</button>
+        <Button type="submit">Submit</Button>
     </form>
   </>
   )

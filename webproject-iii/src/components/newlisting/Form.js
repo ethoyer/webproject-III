@@ -36,9 +36,9 @@ const NewListingForm = () => {
 
   return (
     <>
-      <div className="register">
+      <div className=".formBox">
         {/* needs to seperate forms. one for category choice and then one that is the actual form being turned in */}
-        <form id="newListingForm">
+        <form id="newListingForm" className="form">
           {/* onSubmit={submitForm} */}
           <label>Category </label>
           <Form.Control as="select" id="listingCategory" name="listingCategory" onChange={changeForm}>

@@ -32,8 +32,8 @@ function App() {
       <Route exact path="/editprofile" component={EditUserInfo} />
       <PrivateRoute exact path="/newListing" component={NewListing}/>
       <Route exact path="/browseMarket" component={BrowseMarket} />
-      <Route path="/newlistingsuccess" component={newListingSucess} />
-      <Route path="/:type?/:id?" children={<Listing/>}/>
+      <Route exact path="/newlistingsuccess" component={newListingSucess} />
+      <Route exact path="/:type?/:id?" children={<Listing/>}/>
       <Route path="*" component={Error}/>
       </Switch>
     </Router>
