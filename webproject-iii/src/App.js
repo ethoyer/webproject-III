@@ -33,7 +33,7 @@ function App() {
       <PrivateRoute exact path="/newListing" component={NewListing}/>
       <Route exact path="/browseMarket" component={BrowseMarket} />
       <Route exact path="/newlistingsuccess" component={newListingSucess} />
-      <Route exact path="/:type?/:id?" children={<Listing/>}/>
+      <Route exact path="/market/:type?/:id?" children={<Listing/>}/>
       <Route path="*" component={Error}/>
       </Switch>
     </Router>

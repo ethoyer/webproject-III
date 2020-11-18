@@ -54,7 +54,7 @@ const Listings = (props) => {
       <CardDeck>
         {listing.map(listing => (
           <Card key={listing.id} className="shadow">
-            <Link to={`/${props.filter}/${listing.id}`}>
+            <Link to={`/market/${props.filter}/${listing.id}`}>
               <Card.Img src={listing.images[0]} variant="top"></Card.Img>
               <Card.Body>
                 <Card.Title>{listing.title}</Card.Title>
