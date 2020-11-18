@@ -2,7 +2,7 @@ import "firebase/firestore";
 import * as firebase from 'firebase';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardDeck, Image } from 'react-bootstrap';
+import { Card, CardDeck } from 'react-bootstrap';
 
 const Listings = (props) => {
   const [listing, setListing] = useState([]);
@@ -54,7 +54,7 @@ const Listings = (props) => {
       <CardDeck>
         {listing.map(listing => (
           <Card key={listing.id} className="shadow">
-            <Link to={`/listing/${listing.id}`}>
+            <Link to={`/${props.filter}/${listing.id}`}>
               <Card.Img src={listing.images[0]} variant="top"></Card.Img>
               <Card.Body>
                 <Card.Title>{listing.title}</Card.Title>
