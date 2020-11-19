@@ -96,7 +96,9 @@ const EditUserInfo = () => {
         </Form.Group>
         <Form.Group>         
           <ProfileImageWidget newProfileImage={newProfileImage}/>
-          <Button type="submit">Save</Button>
+          </Form.Group>
+          <Form.Group>  
+          <Button type="submit">Save changes</Button>
         </Form.Group>
       </form>
           
