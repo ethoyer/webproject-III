@@ -24,10 +24,10 @@ class BrowseMarket extends React.Component {
       <>
         {/* displays category links if no category has been chosen */}
         {!this.state.categoryFilter && <div id="categoryLink">
-          <a href="" id="housing" onClick={(e) => this.chooseCategory(e)}>Housing</a>
-          <a href="" id="books_and_supplies" onClick={(e) => this.chooseCategory(e)}>Books and Supplies</a>
-          <a href="" id="furniture" onClick={(e) => this.chooseCategory(e)}>Furniture</a>
-          <a href="" id="services" onClick={(e) => this.chooseCategory(e)}>Services</a></div>}
+          <a id="housing" onClick={(e) => this.chooseCategory(e)}>Housing</a>
+          <a id="books_and_supplies" onClick={(e) => this.chooseCategory(e)}>Books and Supplies</a>
+          <a id="furniture" onClick={(e) => this.chooseCategory(e)}>Furniture</a>
+          <a id="services" onClick={(e) => this.chooseCategory(e)}>Services</a></div>}
 
         {/* displays listings from relevant category when one is chosen */}
         {this.state.categoryFilter && <div id="browsingmarket">
