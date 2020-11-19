@@ -54,9 +54,25 @@ h1, p {
   background-color: #DADCDF;
 }
 
-#homepage>div>div>a:hover{
+#homepage>div>div>a:hover, #categoryLink a:hover{
   background-color: #bec0c4;
 }
+
+/* categories buttons  */
+
+#categoryLink{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+#categoryLink a{
+  color: black;
+  width: 250px;
+}
+
 
 /* new listing form */
 

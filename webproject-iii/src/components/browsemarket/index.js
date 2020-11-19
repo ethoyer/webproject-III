@@ -17,23 +17,22 @@ class BrowseMarket extends React.Component {
 
   categoryChangeThroughFilter = (newChosenCategory) => {
     this.setState({ categoryFilter: newChosenCategory });
-}
+  }
 
   render() {
     return (
       <>
-        {/* displays category buttons if no category has been chosen */}
-        {!this.state.categoryFilter && <div>
-          <button type="button" id="housing" onClick={(e) => this.chooseCategory(e)}>Housing</button>
-          <button type="button" id="books_and_supplies" onClick={(e) => this.chooseCategory(e)}>Books and Supplies</button>
-          <button type="button" id="furniture" onClick={(e) => this.chooseCategory(e)}>Furniture</button>
-          <button type="button" id="services" onClick={(e) => this.chooseCategory(e)}>Services</button>
-        </div>}
+        {/* displays category links if no category has been chosen */}
+        {!this.state.categoryFilter && <div id="categoryLink">
+          <a href="" id="housing" onClick={(e) => this.chooseCategory(e)}>Housing</a>
+          <a href="" id="books_and_supplies" onClick={(e) => this.chooseCategory(e)}>Books and Supplies</a>
+          <a href="" id="furniture" onClick={(e) => this.chooseCategory(e)}>Furniture</a>
+          <a href="" id="services" onClick={(e) => this.chooseCategory(e)}>Services</a></div>}
 
         {/* displays listings from relevant category when one is chosen */}
         {this.state.categoryFilter && <div id="browsingmarket">
           <h1>Marketplace</h1>
-          <Filter filter={this.state.categoryFilter}  categoryChangeThroughFilter={this.categoryChangeThroughFilter}/>
+          <Filter filter={this.state.categoryFilter} categoryChangeThroughFilter={this.categoryChangeThroughFilter} />
           <Listings filter={this.state.categoryFilter} />
         </div>}
       </>
