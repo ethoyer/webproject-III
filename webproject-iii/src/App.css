@@ -66,6 +66,8 @@ h1, p {
   grid-template-rows: 1fr 1fr;
   align-items: center;
   justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 #categoryLink a{
