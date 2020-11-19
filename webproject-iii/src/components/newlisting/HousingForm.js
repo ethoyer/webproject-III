@@ -63,7 +63,7 @@ const HousingForm = () => {
         <p>Housing Information</p>
         <Form.Group>
           <Form.Label htmlFor="housingType">Housing type:</Form.Label>
-          <Form.Control as="select" id="housingType" name="housingType" id="housingType" required>
+          <Form.Control as="select" id="housingType" name="housingType" required>
             <option value="sharedHousing">Shared housing</option>
             <option value="studio apartment">studio apartment</option>
           </Form.Control>
@@ -91,7 +91,7 @@ const HousingForm = () => {
         </Form.Group>
         <Form.Group>
           <Form.Label htmlFor="currencyHousingForm">Currency:</Form.Label>
-          <Form.Control as="select" id="currencyForm" name="currencyHousingForm" id="currencyHousingForm" required>
+          <Form.Control as="select" name="currencyHousingForm" id="currencyHousingForm" required>
             <option value="EUR">EUR</option>
             <option value="USD">USD</option>
             <option value="NOK">NOK</option>
@@ -122,7 +122,7 @@ const HousingForm = () => {
 
         <ImageWidget imageArray={housingImages} />
 
-        <Button class="btn btn-primary" type="submit">Submit</Button>
+        <Button className="btn btn-primary" type="submit">Submit</Button>
       </form>
     </>
   )

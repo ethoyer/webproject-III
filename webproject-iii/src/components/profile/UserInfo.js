@@ -31,7 +31,7 @@ function UserInformation() {
     <div className="formBox" id="editUser">
       <div className="form">        
         <p id="userinformationerror"></p>
-        <img id="userProfileImage" alt="profile image" src=""></img>
+        <img id="userProfileImage" alt="" src=""></img>
         <p>Name: <span id="userfullname"></span></p>
         <p>Birthdate: <span id="userage"></span></p>
         <p id="userlocation">Location: <span id="userlocationcountry"></span>, <span id="userlocationcity"></span></p>      

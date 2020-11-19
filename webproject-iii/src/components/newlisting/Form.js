@@ -1,5 +1,5 @@
 import React from 'react';
-import { FirebaseAppProvider, useFirebaseApp } from 'reactfire';
+import { FirebaseAppProvider } from 'reactfire';
 import {Form} from 'react-bootstrap';
 import 'firebase/auth';
 import "firebase/firestore";
@@ -12,7 +12,6 @@ import ServicesForm from './ServicesForm';
 const NewListingForm = () => {
 
   function changeForm(e) { //changes what forms are displayed based on category choice
-    const form = document.getElementById("newListingForm");
     if (e.target.value === "housing") {
       ReactDOM.render(<FirebaseAppProvider><HousingForm /> </FirebaseAppProvider>, document.getElementById("completeListingForm"));
     } if (e.target.value === "books_and_supplies") {
@@ -31,8 +30,6 @@ const NewListingForm = () => {
       <p>Please choose a category.</p>
     </>
   )
-
-  const chosenCategory = document.getElementById("listingCategory");
 
   return (
     <>

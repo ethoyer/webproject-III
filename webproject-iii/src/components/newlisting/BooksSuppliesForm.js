@@ -69,7 +69,7 @@ const BooksSuppliesForm = () => {
       <p>Payment Information</p>
       <Form.Group>
         <Form.Label htmlFor="currencyBooksSuppliesForm">Currency</Form.Label>
-        <Form.Control as="select" id="currencyForm" name="currencyBooksSuppliesForm" id="currencyBooksSuppliesForm" required>
+        <Form.Control as="select" name="currencyBooksSuppliesForm" id="currencyBooksSuppliesForm" required>
           <option value="EUR" default>EUR</option>
           <option value="USD">USD</option>
           <option value="NOK">NOK</option>
