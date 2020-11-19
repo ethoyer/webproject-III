@@ -28,15 +28,13 @@ function UserInformation() {
   return (
     <>
     <hr />
-    <div className="formBox" id="editUser">
-      <div className="form">        
+    <div id="userInfo">       
         <p id="userinformationerror"></p>
         <img id="userProfileImage" alt="" src=""></img>
         <p>Name: <span id="userfullname"></span></p>
         <p>Birthdate: <span id="userage"></span></p>
         <p id="userlocation">Location: <span id="userlocationcountry"></span>, <span id="userlocationcity"></span></p>      
         <Button href="/editprofile">Edit Profile</Button>
-        </div>
       </div>
     </>
   )

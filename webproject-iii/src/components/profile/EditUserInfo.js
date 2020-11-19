@@ -92,7 +92,7 @@ const EditUserInfo = () => {
         </Form.Group>
         <p>Change profile image:</p>
         <Form.Group>
-          <Image id="currentUserProfileImage" alt="profile image" src="" rounded />
+          <Image id="currentUserProfileImage" alt="profile image" src="" />
         </Form.Group>
         <Form.Group>         
           <ProfileImageWidget newProfileImage={newProfileImage}/>

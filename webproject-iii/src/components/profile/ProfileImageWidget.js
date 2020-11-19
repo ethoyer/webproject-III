@@ -22,7 +22,7 @@ this.showWidget = this.showWidget.bind(this);
     }
     )
     return (
-      <button type="button" id="upload_widget" className="cloudinary-button" onClick={ () => this.showWidget(widget) }>Upload files</button>
+      <button type="button" id="upload_widget" className="cloudinary-button" onClick={ () => this.showWidget(widget) }>Upload Image</button>
     );
   }
 }
