@@ -31,14 +31,14 @@ const Listing = props => {
     if (type === 'housing') {
       return (
         <>
-          <p>Rent: {item.monthlyRent} {item.currency}</p>
-          <p>Deposit: {item.deposit}{item.currency}</p>
-          <p>{item.housingType}</p>
-          <p>Available from {item.availableFrom}</p>
-          <p>Renting period: {item.rentingPeriod}</p>
-          <p>Addr.: {item.street}</p>
-          <p>Size: {item.size} m<sup>2</sup></p>
-          <p>Floor: {item.floor}</p>
+          <p><span className="font-weight-bold text-uppercase">Addr.:</span> {item.street}</p>
+          <p><span className="font-weight-bold text-uppercase">Rent:</span> {item.monthlyRent} {item.currency}</p>
+          <p><span className="font-weight-bold text-uppercase">Deposit:</span> {item.deposit}{item.currency}</p>
+          <p><span className="font-weight-bold text-uppercase">Hosing type:</span> {item.housingType}</p>
+          <p><span className="font-weight-bold text-uppercase">Available from</span> {item.availableFrom}</p>
+          <p><span className="font-weight-bold text-uppercase">Renting period:</span> {item.rentingPeriod}</p>
+          <p><span className="font-weight-bold text-uppercase">Size:</span> {item.size} m<sup>2</sup></p>
+          <p><span className="font-weight-bold text-uppercase">Floor:</span> {item.floor}.</p>
         </>
       )
     }
@@ -47,10 +47,10 @@ const Listing = props => {
     if (type === 'furniture') {
       return (
         <>
-          <p>Price  {item.price} {item.currency}</p>
-          <p>Category {item.furnitureCategory}</p>
-          <p>Condtion {item.condition}</p>
-          <p>Shipping {item.shipping}</p>
+          <p><span className="font-weight-bold text-uppercase">Price</span>  {item.price} {item.currency}</p>
+          <p><span className="font-weight-bold text-uppercase">Category</span> {item.furnitureCategory}</p>
+          <p><span className="font-weight-bold text-uppercase">Condtion</span> {item.condition}</p>
+          <p><span className="font-weight-bold text-uppercase">Shipping information:</span> {item.shipping}</p>
         </>
       )
     }
@@ -59,10 +59,8 @@ const Listing = props => {
     if (type === 'services') {
       return (
         <>
-          <p>Price  {item.price} {item.currency}</p>
-          <p>Sevice Type: {item.serviceType}</p>
-          <p>Conditon {item.condition}</p>
-          <p> Shipping {item.shipping}</p>
+          <p><span className="font-weight-bold text-uppercase">Price</span>  {item.price} {item.currency}</p>
+          <p><span className="font-weight-bold text-uppercase">Sevice Type:</span> {item.serviceType}</p>
         </>
       )
     }
@@ -71,11 +69,9 @@ const Listing = props => {
     if (type === 'books_and_supplies') {
       return (
         <>
-          <p>Price  {item.price} {item.currency}</p>
-          <p>{item.books}</p>
-          <p>{item.supplies}</p>
-          <p>Condition {item.condition}</p>
-          <p>Shipping {item.shipping}</p>
+          <p><span className="font-weight-bold text-uppercase">Price:</span> {item.price} {item.currency}</p>
+          <p><span className="font-weight-bold text-uppercase">Condition:</span> {item.condition}</p>
+          <p><span className="font-weight-bold text-uppercase">Shipping information:</span> {item.shipping}</p>
         </>
       )
     }
@@ -93,21 +89,21 @@ const Listing = props => {
         <Col>
           <h1>{item.title}</h1>
           <p>{item.description}</p>
+        </Col>
+        <Col>
+          <h2 class="text-left">Listing information</h2>
+          <Col>
+            <p className="font-weight-bold text-uppercase">{item.city}, {item.country}</p>
           </Col>
           <Col>
-            <h2>Listing information</h2>
-            <Col>
-            <p>Location {item.city}, {item.country}</p>
-            </Col>
-            <Col>
             {housing()} {furniture()} {service()} {books_supplies()}
-            </Col>
           </Col>
-          <Col>
-            <h2>Contact seller</h2>
-            <p>{seller.fname} {seller.lname}</p>
-            <p><a href={"tel:" + seller.phoneno}>+{seller.phoneno}</a></p>
-            <p><a href={"mailto:" + item.seller}>{item.seller}</a></p>
+        </Col>
+        <Col>
+          <h2 class="text-left">Contact seller</h2>
+          <p className="font-weight-bold text-uppercase">{seller.fname} {seller.lname}</p>
+          <p>tlf.: <a href={"tel:" + seller.phoneno}>{seller.phoneno}</a></p>
+          <p><a href={"mailto:" + item.seller}>{item.seller}</a></p>
         </Col>
       </Container>
     </>

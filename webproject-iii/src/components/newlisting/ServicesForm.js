@@ -13,9 +13,12 @@ const ServicesForm = () => {
 
   const submitServicesForm = async (e) => {
     e.preventDefault();
+    if (servicesImages.length === 0) {
+      servicesImages = 'https://res.cloudinary.com/dysv4qjk7/image/upload/v1605793088/no_image_raloja.png';
+    };
     firebase.firestore().collection("category").doc("services").collection("listings").doc().set({ //submits information to database
       seller: user.email,
-      title: document.getElementById("serviceTitle"),
+      title: document.getElementById("serviceTitle").value,
       country: document.getElementById("serviceCountry").value,
       city: document.getElementById("serviceCity").value,
       serviceType: document.getElementById("serviceType").value,
@@ -50,11 +53,12 @@ const ServicesForm = () => {
       <Form.Group>
         <Form.Label htmlFor="serviceType">Service Type:</Form.Label>
         <Form.Control as="select" name="serviceType" id="serviceType" required>
-          <option value="tutor">Tutor</option>
+          <option value="Tutor">Tutor</option>
           <option value="Campus Guide">Campus Guide</option>
-          <option value="AplicationSupport">Application Support</option>
+          <option value="Application Support">Application Support</option>
           <option value="Activities">Activities</option>
           <option value="Travels">Travel Guide</option>
+          <option value="Other">Other</option>
         </Form.Control>
       </Form.Group>
       <Form.Group>

@@ -13,6 +13,9 @@ const FurnitureForm = () => {
 
   const submitFurnitureForm = async (e) => {
     e.preventDefault();
+    if (furnitureImages.length === 0) {
+      furnitureImages = 'https://res.cloudinary.com/dysv4qjk7/image/upload/v1605793088/no_image_raloja.png';
+    };
     firebase.firestore().collection("category").doc("furniture").collection("listings").doc().set({ //submits information to database
       seller: user.email,
       title: document.getElementById("furnitureTitle").value,
@@ -54,26 +57,25 @@ const FurnitureForm = () => {
       <Form.Group>
         <Form.Label htmlFor="furnitureCategory">Sub-category:</Form.Label>
         <Form.Control as="select" id="furnitureCategory" name="furnitureCategory" required>
-          <option value="chairTables">Chairs &amp; Tables</option>
-          <option value="wardrobes">Wardrobes</option>
-          <option value="cabinetClosets">Cabinets &amp; Closets</option>
-          <option value="chairTables">Chairs &amp; Tables</option>
-          <option value="beds">Beds &amp; Mattresses</option>
-          <option value="shelfs">Bookcases &amp; Shelving</option>
-          <option value="desks">Home desks</option>
-          <option value="kitchen">Kitchen &amp; Dining</option>
-          <option value="sofas">Sofas &amp; Couches</option>
-          <option value="carpets">Carpets</option>
-          <option value="decor">Home décor</option>
-          <option value="other">Other Home Furniture</option>
+          <option value="Chairs &amp; Tables">Chairs &amp; Tables</option>
+          <option value="Wardrobes">Wardrobes</option>
+          <option value="Cabinets &amp; Closets">Cabinets &amp; Closets</option>
+          <option value="Beds &amp; mattresses">Beds &amp; Mattresses</option>
+          <option value="Bookcases &amp; shelving">Bookcases &amp; Shelving</option>
+          <option value="Desks">Home desks</option>
+          <option value="Kitchen &amp; dining">Kitchen &amp; Dining</option>
+          <option value="Sofas">Sofas &amp; Couches</option>
+          <option value="Carpets">Carpets</option>
+          <option value="Home décor">Home décor</option>
+          <option value="Pther">Other Home Furniture</option>
         </Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="furnitureCondition">Condition:</Form.Label>
         <Form.Control as="select" id="furnitureCondition" name="furnitureCondition" required >
-          <option value="conditionLikeNew" default>Like New</option>
-          <option value="conditionSlightWear">Slight wear and tear</option>
-          <option value="conditionNoticeableWear">Noticeable wear and tear</option>
+          <option value="Like New" default>Like New</option>
+          <option value="Slight Wear">Slight wear and tear</option>
+          <option value="Noticeable Wear">Noticeable wear and tear</option>
         </Form.Control>
       </Form.Group>
       <p>Payment &amp; Shipping options</p>
@@ -91,8 +93,8 @@ const FurnitureForm = () => {
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="furnitureShippingForm">Shipping:</Form.Label>
-        <Form.Check type="radio" id="furnitureShippingForm" label="Can be shipped" name="furnitureShipping" /> 
-        <Form.Check type="radio" id="furniturePickup" label="Needs pick-up" name="furniturePickup" />
+        <Form.Check type="radio" id="furnitureShippingForm" value="Can be shipped" label="Can be shipped" name="furnitureShipping" /> 
+        <Form.Check type="radio" id="furniturePickup" value="Needs pick-up" label="Needs pick-up" name="furniturePickup" />
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="furnitureDescription" className="formtitledescription">Description:</Form.Label>

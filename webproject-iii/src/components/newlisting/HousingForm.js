@@ -13,6 +13,9 @@ const HousingForm = () => {
 
   const submitHousingForm = async (e) => {
     e.preventDefault();
+    if (housingImages.length === 0) {
+      housingImages = 'https://res.cloudinary.com/dysv4qjk7/image/upload/v1605793088/no_image_raloja.png';
+    };
     firebase.firestore().collection("category").doc("housing").collection("listings").doc().set({ //submits information to database
       seller: user.email,
       title: document.getElementById("housingTitle").value,
@@ -29,7 +32,6 @@ const HousingForm = () => {
       deposit: document.getElementById("housingDepositPrice").value,
       description: document.getElementById("housingDescription").value,
       images: housingImages
-      // includedInRent: document.getElementById("housingIncludes").value
     })
       .then(result => {
         window.location = '/newlistingsuccess';
@@ -41,7 +43,7 @@ const HousingForm = () => {
 
   return (
     <>
-      <form onSubmit={submitHousingForm}>
+      <form className="form" onSubmit={submitHousingForm}>
         <Form.Group>
           <Form.Label htmlFor="housingTitle" className="formtitledescription">Title:</Form.Label>
           <Form.Control type="text" name="housingTitle" id="housingTitle" required />
@@ -81,8 +83,8 @@ const HousingForm = () => {
         <Form.Group>
           <Form.Label htmlFor="housingRentingPeriod">Renting period:</Form.Label>
           <Form.Control as="select" name="housingRentingPeriod" id="housingRentingPeriod" required>
-            <option value="shortTermRent" default>Short Term</option>
-            <option value="longTermRent">Long Term</option>
+            <option value="short term" default>Short Term</option>
+            <option value="long term">Long Term</option>
           </Form.Control>
         </Form.Group>
         <Form.Group>
@@ -109,16 +111,6 @@ const HousingForm = () => {
           <Form.Label htmlFor="housingDescription" className="formtitledescription">Description:</Form.Label>
           <Form.Control as="textarea" rows={5} placeholder="Write description here..." name="housingDescription" id="housingDescription" />
         </Form.Group>
-
-        {/* <Form.Label>Included in rent:</Form.Label>
-    <checkbox name="housingIncludes" id="housingIncludes" required >
-      <option value="hosuingIncludesCable">TV-Cable</option>
-      <option value="hosuingIncludesInternet">Internet</option>
-      <option value="hosuingIncludesEnergy">Energyy</option>
-      <option value="hosuingIncludesWater">Water</option>
-      <option value="hosuingIncludesFurnished">Furnished</option>
-      <option value="hosuingIncludesUnfurnished">Unfurnished</option>
-    </checkbox> */}
 
         <ImageWidget imageArray={housingImages} />
 

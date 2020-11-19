@@ -13,6 +13,9 @@ const BooksSuppliesForm = () => {
 
   const submitBooksAndSuppliesForm = async (e) => {
     e.preventDefault();
+    if (booksAndSuppliesImages.length === 0) {
+      booksAndSuppliesImages = 'https://res.cloudinary.com/dysv4qjk7/image/upload/v1605793088/no_image_raloja.png';
+    };
     firebase.firestore().collection("category").doc("books_and_supplies").collection("listings").doc().set({ //submits information to database
       seller: user.email,
       title: document.getElementById("booksSuppliesTitle").value,
@@ -44,15 +47,15 @@ const BooksSuppliesForm = () => {
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="booksSuppliesCategory">Sub-category:</Form.Label>
-        <Form.Check type="radio" id="listingbooks" label="Books" name="booksSuppliesCategory" />
-        <Form.Check type="radio" id="listingsupplies" label="Supplies" name="booksSuppliesCategory" />
+        <Form.Check type="radio" id="listingbooks" value="Books" label="Books" name="booksSuppliesCategory" />
+        <Form.Check type="radio" id="listingsupplies" value="Supplies" label="Supplies" name="booksSuppliesCategory" />
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="itemConditionForm">Condition:</Form.Label>
         <Form.Control as="select" name="itemConditionForm" id="itemConditionForm" required>
-          <option value="conditionLikeNew" default>Like New</option>
-          <option value="conditionSlightWear">Slight wear and tear</option>
-          <option value="conditionNoticeableWear">Noticeable wear and tear</option>
+          <option value="Like New" default>Like New</option>
+          <option value="Slight Wear">Slight wear and tear</option>
+          <option value="Noticeable Wear">Noticeable wear and tear</option>
         </Form.Control>
       </Form.Group>
 
@@ -81,8 +84,8 @@ const BooksSuppliesForm = () => {
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="booksSuppliesShippingForm">Shipping:</Form.Label>
-        <Form.Check type="radio" label="Can be shipped" name="booksSuppliesShipping" id="booksSuppliesShippingForm" />
-        <Form.Check type="radio" label="Needs pick-up" id="booksSuppliesPickup" name="booksSuppliesPickup" />
+        <Form.Check type="radio" value="Can be shipped" label="Can be shipped" name="booksSuppliesShipping" id="booksSuppliesShippingForm" />
+        <Form.Check type="radio" value="Needs pick-up" label="Needs pick-up" id="booksSuppliesPickup" name="booksSuppliesPickup" />
       </Form.Group>
       <Form.Group>
         <Form.Label htmlFor="booksSuppliesDescription" className="formtitledescription">Description:</Form.Label>
