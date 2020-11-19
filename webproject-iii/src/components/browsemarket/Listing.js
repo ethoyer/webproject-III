@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as firebase from 'firebase';
 import { useParams, Link } from 'react-router-dom'
-import { Container, Image, Col } from 'react-bootstrap';
+import { Container, Image, Col, Carousel } from 'react-bootstrap';
 import { BsArrowLeft } from "react-icons/bs";
 
 
@@ -59,7 +59,6 @@ const Listing = props => {
     if (type === 'services') {
       return (
         <>
-          <p><span className="font-weight-bold text-uppercase">Price</span>  {item.price} {item.currency}</p>
           <p><span className="font-weight-bold text-uppercase">Sevice Type:</span> {item.serviceType}</p>
         </>
       )
@@ -82,8 +81,18 @@ const Listing = props => {
     <>
       <Link to="/browsemarket" id="backButton"><BsArrowLeft />Back</Link>
       <Container className="listing">
-        <Col>
-          <Image alt="" src={item.images} fluid></Image>
+      <Col>
+      {item.images ? (
+       <Carousel>
+       {item.images.map( image => {
+         return <Carousel.Item>
+           <img className="d-block w-100" src={image}/>
+         </Carousel.Item>
+       })}
+       </Carousel>
+      ) : (
+        <p>Please wait for images to load</p>
+      )}
         </Col>
 
         <Col>
