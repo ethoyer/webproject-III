@@ -14,7 +14,7 @@ const FurnitureForm = () => {
   const submitFurnitureForm = async (e) => {
     e.preventDefault();
     if (furnitureImages.length === 0) {
-      furnitureImages = 'https://res.cloudinary.com/dysv4qjk7/image/upload/v1605793088/no_image_raloja.png';
+      furnitureImages.push('https://res.cloudinary.com/dysv4qjk7/image/upload/v1605793088/no_image_raloja.png');
     };
     firebase.firestore().collection("category").doc("furniture").collection("listings").doc().set({ //submits information to database
       seller: user.email,

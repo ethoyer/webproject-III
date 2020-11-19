@@ -14,7 +14,7 @@ const ServicesForm = () => {
   const submitServicesForm = async (e) => {
     e.preventDefault();
     if (servicesImages.length === 0) {
-      servicesImages = 'https://res.cloudinary.com/dysv4qjk7/image/upload/v1605793088/no_image_raloja.png';
+      servicesImages.push('https://res.cloudinary.com/dysv4qjk7/image/upload/v1605793088/no_image_raloja.png');
     };
     firebase.firestore().collection("category").doc("services").collection("listings").doc().set({ //submits information to database
       seller: user.email,

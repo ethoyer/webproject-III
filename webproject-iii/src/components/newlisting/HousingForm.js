@@ -14,7 +14,7 @@ const HousingForm = () => {
   const submitHousingForm = async (e) => {
     e.preventDefault();
     if (housingImages.length === 0) {
-      housingImages = 'https://res.cloudinary.com/dysv4qjk7/image/upload/v1605793088/no_image_raloja.png';
+      housingImages.push('https://res.cloudinary.com/dysv4qjk7/image/upload/v1605793088/no_image_raloja.png');
     };
     firebase.firestore().collection("category").doc("housing").collection("listings").doc().set({ //submits information to database
       seller: user.email,

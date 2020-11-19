@@ -14,7 +14,7 @@ const BooksSuppliesForm = () => {
   const submitBooksAndSuppliesForm = async (e) => {
     e.preventDefault();
     if (booksAndSuppliesImages.length === 0) {
-      booksAndSuppliesImages = 'https://res.cloudinary.com/dysv4qjk7/image/upload/v1605793088/no_image_raloja.png';
+      booksAndSuppliesImages.push('https://res.cloudinary.com/dysv4qjk7/image/upload/v1605793088/no_image_raloja.png');
     };
     firebase.firestore().collection("category").doc("books_and_supplies").collection("listings").doc().set({ //submits information to database
       seller: user.email,
