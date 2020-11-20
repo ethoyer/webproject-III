@@ -12,7 +12,7 @@ const Listings = (props) => {
   let previewImage;
 
   useEffect(() => {
-    if (baselist.lenght === 0 || newCategory !== props.filter) { //if first load or chosen category has changed
+    if (baselist.length === 0 || newCategory !== props.filter) { //if first load or chosen category has changed
       setNewCategory(props.filter);
       // collects listings from chosen category
       const docRef = firebase.firestore().collection('category').doc(props.filter).collection('listings').onSnapshot(snapshot => {
