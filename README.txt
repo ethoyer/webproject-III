@@ -1,12 +1,15 @@
 README
 
-set-up
+All code is located inside the zipped up webproject-iii folder. The live solution can be viewed at URL.
+Project report: IMT3891-project_report-group_1.pdf
+Process report: IMT3891-process_report-group_1.pdf
 
-for å kunne se nettsiden så må du laste ned nyeste versjon av git, bruk git command console og  naviger deg inn i "webproject-iii" 
-mappa(samme mappe som readme filen er i). på windows kan du også høyreklikke inne i mappa og velge "git bash here".
-i konsollen skriv "npm install" og la den kjøre (det kan ta litt tid). deretter "npm start" og da vil react applikasjonen åpnes i nettleseren.
-si ifra hvis du får errors og hvilken error du får(kan hende jeg ikke satte opp package.json) riktig.
-Kan også være verdt å prøve å slette node_modules pakka og kjøre "npm install" igjen.
+If you would like to host the solution yourself, follow the set-up process below.
 
-README.md er en default readme som blir laget når man bruker en npm command for å lage et nytt react prosjekt
-den inneholder noen npm commands, men vil bli slettet før vi leverer inn oppgaven. 
+Set up:
+1. install git
+2. install node.js(newest version is recommended)
+3. run "npm install"
+4. run "npm start" to start the application
+
+if there are any errors while running "npm start" it might be necessary to delete the node_module folder and run "npm install" before starting the application again.
