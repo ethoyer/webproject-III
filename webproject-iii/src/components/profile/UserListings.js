@@ -66,7 +66,7 @@ function UserListings() {
         setallListings(allUserListings); //sets all users listings as state
       });
     }
-  }, [allListings]);
+  }, [allUserListings, allListings]);
 
   return (
     <Col id="userListings">

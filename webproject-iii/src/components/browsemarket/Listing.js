@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as firebase from 'firebase';
 import { useParams, Link } from 'react-router-dom'
-import { Container, Image, Col, Carousel } from 'react-bootstrap';
+import { Container, Col, Carousel } from 'react-bootstrap';
 import { BsArrowLeft } from "react-icons/bs";
 
 
@@ -86,7 +86,7 @@ const Listing = props => {
        <Carousel>
        {item.images.map( image => {
          return <Carousel.Item>
-           <img className="d-block w-100" src={image}/>
+           <img alt="" className="d-block w-100" src={image}/>
          </Carousel.Item>
        })}
        </Carousel>

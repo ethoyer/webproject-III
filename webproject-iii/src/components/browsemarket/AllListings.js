@@ -29,7 +29,7 @@ const Listings = (props) => {
     } else if (!word || word.length === 0) {
       setListing(baselist);
     }
-  }, [baselist, word, props.filter]);
+  }, [newCategory, baselist, word, props.filter]);
 
   const handleChange = e => {
     setWord(e.toLowerCase());
