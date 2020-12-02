@@ -3,6 +3,7 @@ import "firebase/firestore";
 import Listings from './AllListings';
 import Filter from './Filter';
 import '../../browsemarket.css';
+import { Link } from 'react-router-dom';
 
 class BrowseMarket extends React.Component {
   constructor(props) {
@@ -24,10 +25,10 @@ class BrowseMarket extends React.Component {
       <>
         {/* displays category links if no category has been chosen */}
         {!this.state.categoryFilter && <div id="categoryLink">
-          <a id="housing" onClick={(e) => this.chooseCategory(e)}>Housing</a>
-          <a id="books_and_supplies" onClick={(e) => this.chooseCategory(e)}>Books and Supplies</a>
-          <a id="furniture" onClick={(e) => this.chooseCategory(e)}>Furniture</a>
-          <a id="services" onClick={(e) => this.chooseCategory(e)}>Services</a></div>}
+          <Link id="housing" onClick={(e) => this.chooseCategory(e)}>Housing</Link>
+          <Link id="books_and_supplies" onClick={(e) => this.chooseCategory(e)}>Books and Supplies</Link>
+          <Link id="furniture" onClick={(e) => this.chooseCategory(e)}>Furniture</Link>
+          <Link id="services" onClick={(e) => this.chooseCategory(e)}>Services</Link></div>}
 
         {/* displays listings from relevant category when one is chosen */}
         {this.state.categoryFilter && <div id="browsingmarket">

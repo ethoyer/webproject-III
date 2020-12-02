@@ -4,6 +4,7 @@ import * as firebase from 'firebase';
 import "firebase/firestore";
 import { useUser } from 'reactfire';
 import { Col, CardDeck, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function   deleteListing(e){
   const listingID = e.target.parentNode.parentNode.id;
@@ -77,7 +78,7 @@ function UserListings() {
           <Card.Body>
           <Card.Title>{listing.title}</Card.Title>
           <Card.Text>{listing.price}{listing.monthlyRent}{listing.currency}</Card.Text>
-          <a className={listing.category} onClick={(e) => deleteListing(e)}>Delete Listing</a>
+          <Link className={listing.category} onClick={(e) => deleteListing(e)}>Delete Listing</Link>
         </Card.Body>
         </Card>
       })}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
 import { Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -35,7 +36,7 @@ const Login = () => {
 
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
-      window.location = '/'; //After successful login, user will be redirected to home.html
+      window.location = '/webproject-III/#/'; //After successful login, user will be redirected to home.html
     }
   });
 
@@ -48,7 +49,7 @@ const Login = () => {
           <div><Button type="submit">Log in</Button></div>
         </form>
         {user.error && <h4>{user.error}</h4>}
-        <div class="a"> Not registered? <a href="/register">Create an Account!</a></div>
+        <div class="a"> Not registered? <Link to="/register">Create an Account!</Link></div>
       </div>
     </>
   )

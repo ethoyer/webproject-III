@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 function Error () {
 return (
     <div>
         <h1>Nothing to see here</h1>
-        <a href="/">Press here to return to homepage</a>
+        <Link to="/">Press here to return to homepage</Link>
     </div>
     )
 } 

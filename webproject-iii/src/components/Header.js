@@ -3,6 +3,7 @@ import { useUser } from 'reactfire';
 import Logout from './Logout.js';
 import './header.css';
 import {FaPlus} from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 function Header() {
     const user = useUser();
@@ -10,12 +11,12 @@ function Header() {
   return (
       <header>
           <nav>
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
           {/* displays logout, newlisting log in and profile link depending on user is logged in or logged out. */}
           {user && <Logout/>}    
-          {!user && <a href="/login">Login</a>}
-          {user && <a href="/profile">Profile</a>}
-          {user && <a href="/newlisting"> <FaPlus /> New Listing</a>}
+          {!user && <Link to="/login">Login</Link>}
+          {user && <Link to="/profile">Profile</Link>}
+          {user && <Link to="/newlisting"> <FaPlus /> New Listing</Link>}
           </nav>
       </header>
   )

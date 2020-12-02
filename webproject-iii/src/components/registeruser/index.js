@@ -49,7 +49,7 @@ const RegisterUser = () => {
             //redirects after user has been successfully registered
             registerUser = true;
             if (registerUser === true) {
-              window.location = '/registersuccess';
+              window.location = '/webproject-III/#/registersuccess';
             }
           })
       }).catch(function (error) {

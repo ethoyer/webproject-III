@@ -3,7 +3,7 @@ import './App.css'
 import './components/header.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './components/header.css';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Route, BrowserRouter as Router, HashRouter, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import Homepage from './components/homepage';
 import CategoryButton from './components/homepage/CategoryButton';
@@ -21,8 +21,8 @@ import newListingSucess from './components/newlisting/newListingSuccess';
 function App() {
   return (
     <>
-    <Router>
-    <Switch>
+    {/* <HashRouter> */}
+    {/* <Switch> */}
       <Route exact path="/" component={Homepage} />
       <Route exact path="/CategoryButton" component={CategoryButton} />
       <Route exact path="/login" component={Login} />
@@ -34,9 +34,9 @@ function App() {
       <Route exact path="/browseMarket" component={BrowseMarket} />
       <Route exact path="/newlistingsuccess" component={newListingSucess} />
       <Route exact path="/market/:type?/:id?" children={<Listing/>}/>
-      <Route path="*" component={Error}/>
-      </Switch>
-    </Router>
+      {/* <Route exact path="/*" component={Error}/> */}
+      {/* </Switch> */}
+    {/* </HashRouter> */}
     </>
   );
 }

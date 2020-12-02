@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class CategoryButton extends React.Component {
     handleClick(e) {
@@ -7,7 +8,7 @@ class CategoryButton extends React.Component {
 
         return (
             <div>
-                <a href={this.props.url} onClick={this.handleClick}> {this.props.title} </a>
+                <Link to={this.props.url} onClick={this.handleClick}> {this.props.title} </Link>
             </div>
         );
     }

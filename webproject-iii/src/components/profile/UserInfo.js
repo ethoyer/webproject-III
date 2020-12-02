@@ -32,7 +32,7 @@ function UserInformation() {
         <p>Name: <span id="userfullname"></span></p>
         <p>Birthdate: <span id="userage"></span></p>
         <p id="userlocation">Location: <span id="userlocationcountry"></span>, <span id="userlocationcity"></span></p>      
-        <Button href="/editprofile">Edit Profile</Button>
+        <Button href="/webproject-III/#/editprofile">Edit Profile</Button>
       </Col>
   )
 }

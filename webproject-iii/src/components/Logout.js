@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth';
+import { Link } from 'react-router-dom';
 
 const Logout = () => {
   // Import firebase
@@ -13,7 +14,7 @@ const Logout = () => {
 
   return (
     <>
-      <a href="/" onClick={handleClick}>Log Out</a>
+      <Link to="/" onClick={handleClick}>Log Out</Link>
     </>
   )
 };

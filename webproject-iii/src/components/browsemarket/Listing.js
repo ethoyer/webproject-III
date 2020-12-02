@@ -111,8 +111,8 @@ const Listing = props => {
         <Col>
           <h2 class="text-left">Contact seller</h2>
           <p className="font-weight-bold text-uppercase">{seller.fname} {seller.lname}</p>
-          <p>tlf.: <a href={"tel:" + seller.phoneno}>{seller.phoneno}</a></p>
-          <p><a href={"mailto:" + item.seller}>{item.seller}</a></p>
+          <p>tlf.: <Link to={"tel:" + seller.phoneno}>{seller.phoneno}</Link></p>
+          <p><Link to={"mailto:" + item.seller}>{item.seller}</Link></p>
         </Col>
       </Container>
     </>
