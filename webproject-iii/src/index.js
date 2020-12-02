@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import { FirebaseAppProvider } from 'reactfire';
 import firebaseConfig from './firebaseConfig';
 import App from './App'; //  importer componenten som heter App fra filen app.js  se app.js for flere notater
