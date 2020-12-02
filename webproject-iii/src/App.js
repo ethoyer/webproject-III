@@ -23,7 +23,7 @@ function App() {
     <>
     <Router>
     <Switch>
-      <Route exact path="https://ethoyer.github.io/webproject-III/" component={Homepage} />
+      <Route exact path="/" component={Homepage} />
       <Route exact path="/CategoryButton" component={CategoryButton} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={RegisterUser} />
