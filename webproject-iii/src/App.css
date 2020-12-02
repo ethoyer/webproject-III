@@ -17,16 +17,6 @@ p, a, button{
   font-family: 'Montserrat', sans-serif;
 }
 
-/* .mentor,
-.courses,
-.market {
-  text-decoration: none;
-  background-color: #f1f1f1;
-  flex-direction: column;
-  margin: 10px;
-  padding: 20px;
-} */
-
 /* home page */
 
 #homepage {
@@ -145,7 +135,6 @@ form p {
   width: 50%;
 }
 
-
 /* Categories Browsemarket */
 
 #housing,
@@ -187,7 +176,7 @@ footer p{
   text-decoration: none;
   color: black;
 }
-/*---- Login page ----*/
+/*---- Login page and user profile ----*/
 
  #userInfo{
   width: 50%;
