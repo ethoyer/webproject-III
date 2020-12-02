@@ -9,8 +9,8 @@ function Homepage() {
     <div id="homepage">
       <h1>Social Integration Services</h1>
       <div>
-        <CategoryButton url="/" title="Mentorships" />
-        <CategoryButton url="/" title="Courses" />
+        <CategoryButton url="" title="Mentorships (TBA)" />
+        <CategoryButton url="" title="Courses (TBA)" />
         <CategoryButton url="/browsemarket" title="Marketplace" />
       </div>
     </div>
