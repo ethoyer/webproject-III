@@ -11,7 +11,8 @@ If you would like to run the solution locally, follow the set-up process below.
 Set up:
 1. install git
 2. install node.js(newest version is recommended)
-3. open up your command menu of choice and navigate inside the webproject-iii folder.
+3. unzip webroject-iii.zip
+4. open up your command menu of choice and navigate inside the webproject-iii folder.
 5. run "npm install"
 6. run "npm start" to start the application
 
